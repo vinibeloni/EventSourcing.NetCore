@@ -27,6 +27,10 @@ COPY ./Core.WebApi ./Core.WebApi
 COPY ./Sample/Tickets/Tickets ./Sample/Tickets/Tickets
 COPY ./Sample/Tickets/Tickets.Api ./Sample/Tickets/Tickets.Api
 
+# Verify formatting
+# Break build if not formatted
+RUN dotnet format --verify-no-changes
+
 # Build project with Release configuration
 # and no restore, as we did it already
 RUN dotnet build -c Release --no-restore ./Sample/Tickets/Tickets.Api/Tickets.Api.csproj
