@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Warehouse.Core.Queries;
@@ -13,7 +13,7 @@ public static class QueryHandlerConfiguration
     public static IServiceCollection AddQueryHandler<T, TResult, TQueryHandler>(
         this IServiceCollection services,
         Func<IServiceProvider, TQueryHandler>? configure = null
-    ) where TQueryHandler: class, IQueryHandler<T, TResult>
+    ) where TQueryHandler : class, IQueryHandler<T, TResult>
     {
 
         if (configure == null)

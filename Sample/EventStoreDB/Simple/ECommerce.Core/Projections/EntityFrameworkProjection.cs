@@ -1,4 +1,4 @@
-﻿using Core.Events;
+using Core.Events;
 using ECommerce.Core.Queries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -12,8 +12,8 @@ public static class EntityFrameworkProjection
         this IServiceCollection services,
         Action<EntityFrameworkProjectionBuilder<TView, TDbContext>> setup
     )
-        where TView: class
-        where TDbContext: DbContext
+        where TView : class
+        where TDbContext : DbContext
     {
         setup(new EntityFrameworkProjectionBuilder<TView, TDbContext>(services));
         return services;
@@ -77,8 +77,8 @@ public class EntityFrameworkProjectionBuilder<TView, TDbContext>
 }
 
 public class AddProjection<TView, TEvent, TDbContext>: IEventHandler<EventEnvelope<TEvent>>
-    where TView: class
-    where TDbContext: DbContext
+    where TView : class
+    where TDbContext : DbContext
     where TEvent : notnull
 {
     private readonly TDbContext dbContext;
@@ -103,8 +103,8 @@ public class AddProjection<TView, TEvent, TDbContext>: IEventHandler<EventEnvelo
 }
 
 public class UpdateProjection<TView, TEvent, TDbContext>: IEventHandler<EventEnvelope<TEvent>>
-    where TView: class
-    where TDbContext: DbContext
+    where TView : class
+    where TDbContext : DbContext
     where TEvent : notnull
 {
     private readonly TDbContext dbContext;
@@ -127,7 +127,7 @@ public class UpdateProjection<TView, TEvent, TDbContext>: IEventHandler<EventEnv
     public async Task Handle(EventEnvelope<TEvent> eventEnvelope, CancellationToken ct)
     {
         var viewId = getViewId(eventEnvelope.Data);
-        var view = await dbContext.FindAsync<TView>(new [] {viewId}, ct);
+        var view = await dbContext.FindAsync<TView>(new[] { viewId }, ct);
 
         if (view == null)
             throw new InvalidOperationException($"{typeof(TView).Name} with id {viewId} wasn't found");

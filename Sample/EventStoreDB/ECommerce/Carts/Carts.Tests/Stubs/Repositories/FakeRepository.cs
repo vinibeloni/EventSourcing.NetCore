@@ -4,13 +4,13 @@ using Core.Tracing;
 
 namespace Carts.Tests.Stubs.Repositories;
 
-public class FakeRepository<T> : IEventStoreDBRepository<T> where T : class, IAggregate
+public class FakeRepository<T>: IEventStoreDBRepository<T> where T : class, IAggregate
 {
     public Dictionary<Guid, T> Aggregates { get; private set; }
 
     public FakeRepository(params T[] aggregates)
     {
-        Aggregates = aggregates.ToDictionary(ks=> ks.Id, vs => vs);
+        Aggregates = aggregates.ToDictionary(ks => ks.Id, vs => vs);
     }
 
     public Task<T?> Find(Guid id, CancellationToken cancellationToken)

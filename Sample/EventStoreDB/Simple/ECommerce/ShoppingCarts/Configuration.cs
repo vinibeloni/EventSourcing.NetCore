@@ -1,4 +1,4 @@
-﻿using ECommerce.Core.Commands;
+using ECommerce.Core.Commands;
 using ECommerce.Core.Projections;
 using ECommerce.Pricing.ProductPricing;
 using ECommerce.ShoppingCarts.AddingProductItem;

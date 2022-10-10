@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace ECommerce.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Initial: Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

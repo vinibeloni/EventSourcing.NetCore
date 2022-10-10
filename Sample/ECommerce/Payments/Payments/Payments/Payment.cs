@@ -19,7 +19,7 @@ public class Payment: Aggregate
         return new Payment(paymentId, orderId, amount);
     }
 
-    public Payment(){}
+    public Payment() { }
 
     private Payment(Guid id, Guid orderId, decimal amount)
     {
@@ -38,7 +38,7 @@ public class Payment: Aggregate
 
     public void Complete()
     {
-        if(Status != PaymentStatus.Pending)
+        if (Status != PaymentStatus.Pending)
             throw new InvalidOperationException($"Completing payment in '{Status}' status is not allowed.");
 
         var @event = PaymentCompleted.Create(Id, DateTime.UtcNow);
@@ -54,7 +54,7 @@ public class Payment: Aggregate
 
     public void Discard(DiscardReason discardReason)
     {
-        if(Status != PaymentStatus.Pending)
+        if (Status != PaymentStatus.Pending)
             throw new InvalidOperationException($"Discarding payment in '{Status}' status is not allowed.");
 
         var @event = PaymentDiscarded.Create(Id, discardReason, DateTime.UtcNow);
@@ -70,7 +70,7 @@ public class Payment: Aggregate
 
     public void TimeOut()
     {
-        if(Status != PaymentStatus.Pending)
+        if (Status != PaymentStatus.Pending)
             throw new InvalidOperationException($"Discarding payment in '{Status}' status is not allowed.");
 
         var @event = PaymentTimedOut.Create(Id, DateTime.UtcNow);

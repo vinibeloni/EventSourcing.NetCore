@@ -69,7 +69,7 @@ public class OrderSaga:
     // Compensation
     public Task Handle(ProductWasOutOfStock @event, CancellationToken cancellationToken)
     {
-        return commandBus.Send(CancelOrder.Create(@event.OrderId, (OrderCancellationReason) OrderCancellationReason.ProductWasOutOfStock));
+        return commandBus.Send(CancelOrder.Create(@event.OrderId, (OrderCancellationReason)OrderCancellationReason.ProductWasOutOfStock));
     }
 
     public Task Handle(OrderCancelled @event, CancellationToken cancellationToken)

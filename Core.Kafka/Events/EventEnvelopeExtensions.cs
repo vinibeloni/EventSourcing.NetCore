@@ -1,4 +1,4 @@
-﻿using Confluent.Kafka;
+using Confluent.Kafka;
 using Core.Events;
 using Core.Reflection;
 using Core.Serialization.Newtonsoft;

@@ -4,7 +4,7 @@ namespace Tools.Tools;
 
 public static class ReflectionInvoker
 {
-    public static void InvokeIfExists<T>(this T item, string methodName, object param) where T: notnull
+    public static void InvokeIfExists<T>(this T item, string methodName, object param) where T : notnull
     {
         var method = item.GetType()
             .GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
@@ -18,10 +18,10 @@ public static class ReflectionInvoker
             })
             .SingleOrDefault();
 
-        method?.Invoke(item, new [] { param });
+        method?.Invoke(item, new[] { param });
     }
 
-    public static void SetIfExists<T>(this T item, string propertyName, object value) where T: notnull
+    public static void SetIfExists<T>(this T item, string propertyName, object value) where T : notnull
     {
         item.GetType()
             .GetProperty(propertyName)?

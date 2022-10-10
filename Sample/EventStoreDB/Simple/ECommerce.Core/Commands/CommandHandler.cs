@@ -1,4 +1,4 @@
-﻿using Core.EventStoreDB.OptimisticConcurrency;
+using Core.EventStoreDB.OptimisticConcurrency;
 using Core.Tracing;
 using Core.Tracing.Causation;
 using Core.Tracing.Correlation;

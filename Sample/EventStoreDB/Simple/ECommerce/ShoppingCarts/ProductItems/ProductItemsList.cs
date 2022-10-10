@@ -1,4 +1,4 @@
-﻿namespace ECommerce.ShoppingCarts.ProductItems;
+namespace ECommerce.ShoppingCarts.ProductItems;
 
 public class ProductItemsList
 {

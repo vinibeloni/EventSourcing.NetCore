@@ -297,10 +297,10 @@ public class FakeProductPriceCalculator: IProductPriceCalculator
     public PricedProductItem Calculate(ProductItem productItem)
     {
         return new PricedProductItem
-            {
-                ProductId = productItem.ProductId,
-                Quantity = productItem.Quantity,
-                UnitPrice = value
-            };
+        {
+            ProductId = productItem.ProductId,
+            Quantity = productItem.Quantity,
+            UnitPrice = value
+        };
     }
 }

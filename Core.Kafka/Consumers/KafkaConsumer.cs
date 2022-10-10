@@ -48,7 +48,7 @@ public class KafkaConsumer: IExternalEventConsumer
         }
         catch (Exception e)
         {
-            logger.LogError("Error consuming Kafka message: {Message} {StackTrace}",e.Message, e.StackTrace);
+            logger.LogError("Error consuming Kafka message: {Message} {StackTrace}", e.Message, e.StackTrace);
 
             // Ensure the consumer leaves the group cleanly and final offsets are committed.
             consumer.Close();
@@ -91,7 +91,7 @@ public class KafkaConsumer: IExternalEventConsumer
         }
         catch (Exception e)
         {
-            logger.LogError("Error producing Kafka message: {Message} {StackTrace}",e.Message, e.StackTrace);
+            logger.LogError("Error producing Kafka message: {Message} {StackTrace}", e.Message, e.StackTrace);
         }
     }
 }

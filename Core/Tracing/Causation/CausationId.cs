@@ -1,4 +1,4 @@
-﻿namespace Core.Tracing.Causation;
+namespace Core.Tracing.Causation;
 
 public record CausationId(string Value)
 {

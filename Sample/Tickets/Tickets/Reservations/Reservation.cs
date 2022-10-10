@@ -7,7 +7,7 @@ using Tickets.Reservations.NumberGeneration;
 
 namespace Tickets.Reservations;
 
-public class Reservation : Aggregate
+public class Reservation: Aggregate
 {
     public Guid SeatId { get; private set; }
 
@@ -57,7 +57,7 @@ public class Reservation : Aggregate
         if (newSeatId == Guid.Empty)
             throw new ArgumentOutOfRangeException(nameof(newSeatId));
 
-        if(Status != ReservationStatus.Tentative)
+        if (Status != ReservationStatus.Tentative)
             throw new InvalidOperationException($"Changing seat for the reservation in '{Status}' status is not allowed.");
 
         var @event = new ReservationSeatChanged(Id, newSeatId);
@@ -68,7 +68,7 @@ public class Reservation : Aggregate
 
     public void Confirm()
     {
-        if(Status != ReservationStatus.Tentative)
+        if (Status != ReservationStatus.Tentative)
             throw new InvalidOperationException($"Only tentative reservation can be confirmed (current status: {Status}.");
 
         var @event = new ReservationConfirmed(Id);
@@ -79,7 +79,7 @@ public class Reservation : Aggregate
 
     public void Cancel()
     {
-        if(Status != ReservationStatus.Tentative)
+        if (Status != ReservationStatus.Tentative)
             throw new InvalidOperationException($"Only tentative reservation can be cancelled (current status: {Status}).");
 
         var @event = new ReservationCancelled(Id);

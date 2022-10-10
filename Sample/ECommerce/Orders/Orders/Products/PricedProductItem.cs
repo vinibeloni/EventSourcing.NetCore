@@ -15,7 +15,7 @@ public class PricedProductItem
 
     public static PricedProductItem Create(Guid? productId, int? quantity, decimal? unitPrice)
     {
-        return new (
+        return new(
             productId ?? throw new ArgumentNullException(nameof(productId)),
             quantity ?? throw new ArgumentNullException(nameof(quantity)),
             unitPrice ?? throw new ArgumentNullException(nameof(unitPrice))

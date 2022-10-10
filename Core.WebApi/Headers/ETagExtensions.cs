@@ -1,4 +1,4 @@
-﻿using Core.WebApi.Responses;
+using Core.WebApi.Responses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
 
@@ -14,7 +14,8 @@ public static class ETagExtensions
 
     public static void TrySetETagResponseHeader(this HttpResponse response, object etag)
     {
-        if (!response.IsSuccessful()) return;
+        if (!response.IsSuccessful())
+            return;
 
         response.GetTypedHeaders().ETag = new EntityTagHeaderValue($"\"{etag}\"", true);
     }

@@ -2,8 +2,8 @@ using FluentAssertions;
 using MeetingsManagement.Meetings.CreatingMeeting;
 using MeetingsManagement.Meetings.GettingMeeting;
 using MeetingsManagement.Meetings.ValueObjects;
-using Xunit;
 using Ogooreck.API;
+using Xunit;
 using static Ogooreck.API.ApiSpecification;
 
 namespace MeetingsManagement.IntegrationTests.Meetings.SchedulingMeetings;

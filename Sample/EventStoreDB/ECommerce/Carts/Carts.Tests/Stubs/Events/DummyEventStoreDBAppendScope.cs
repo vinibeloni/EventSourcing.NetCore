@@ -1,4 +1,4 @@
-﻿using Core.EventStoreDB.OptimisticConcurrency;
+using Core.EventStoreDB.OptimisticConcurrency;
 using Core.Tracing;
 
 namespace Carts.Tests.Stubs.Events;

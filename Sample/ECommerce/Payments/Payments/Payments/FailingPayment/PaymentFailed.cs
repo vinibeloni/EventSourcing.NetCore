@@ -19,11 +19,11 @@ public record PaymentFailed(
         decimal amount,
         DateTime failedAt,
         PaymentFailReason failReason
-    ) => new (paymentId, orderId, amount, failedAt, failReason);
+    ) => new(paymentId, orderId, amount, failedAt, failReason);
 }
 
 
-public class TransformIntoPaymentFailed :
+public class TransformIntoPaymentFailed:
     IEventHandler<EventEnvelope<PaymentDiscarded>>,
     IEventHandler<EventEnvelope<PaymentTimedOut>>
 {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 
@@ -24,7 +24,7 @@ internal class Product
     /// </summary>
     public string? Description { get; set; }
 
-    private Product(){}
+    private Product() { }
 
     public Product(Guid id, SKU sku, string name, string? description)
     {

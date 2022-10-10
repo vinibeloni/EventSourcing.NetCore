@@ -4,7 +4,7 @@ using Marten.Schema.Identity;
 
 namespace Core.Marten.Ids;
 
-public class MartenIdGenerator : IIdGenerator
+public class MartenIdGenerator: IIdGenerator
 {
     private readonly IDocumentSession documentSession;
 

@@ -11,12 +11,12 @@ namespace EventStoreBasics.Tests;
 
 public class Exercise09Projections
 {
-    class User : Aggregate
+    private class User: Aggregate
     {
         public string Name { get; private set; } = default!;
 
         // added only for dapper deserialization needs
-        private User() {}
+        private User() { }
 
         public User(Guid id, string name)
         {
@@ -46,7 +46,7 @@ public class Exercise09Projections
         }
     }
 
-    class UserCreated
+    private class UserCreated
     {
         public Guid UserId { get; }
         public string UserName { get; }
@@ -58,8 +58,7 @@ public class Exercise09Projections
         }
     }
 
-
-    class UserNameUpdated
+    private class UserNameUpdated
     {
         public Guid UserId { get; }
         public string UserName { get; }
@@ -71,14 +70,14 @@ public class Exercise09Projections
         }
     }
 
-    class Order : Aggregate
+    private class Order: Aggregate
     {
         public string Number { get; private set; } = default!;
 
         public decimal Amount { get; private set; }
 
         // added only for dapper deserialization needs
-        private Order() {}
+        private Order() { }
 
         public Order(Guid id, Guid userId, string number, decimal price)
         {
@@ -129,7 +128,7 @@ public class Exercise09Projections
         }
     }
 
-    public class UserDashboardProjection : Projection
+    public class UserDashboardProjection: Projection
     {
         private readonly NpgsqlConnection databaseConnection;
 
@@ -142,7 +141,7 @@ public class Exercise09Projections
             Projects<OrderCreated>(Apply);
         }
 
-        void Apply(UserCreated @event)
+        private void Apply(UserCreated @event)
         {
             databaseConnection.Execute(
                 @"INSERT INTO UserDashboards (Id, UserName, OrdersCount, TotalAmount)
@@ -151,7 +150,7 @@ public class Exercise09Projections
             );
         }
 
-        void Apply(UserNameUpdated @event)
+        private void Apply(UserNameUpdated @event)
         {
             databaseConnection.Execute(
                 @"UPDATE UserDashboards
@@ -161,7 +160,7 @@ public class Exercise09Projections
             );
         }
 
-        void Apply(OrderCreated @event)
+        private void Apply(OrderCreated @event)
         {
             databaseConnection.Execute(
                 @"UPDATE UserDashboards
@@ -174,7 +173,7 @@ public class Exercise09Projections
     }
 
     [Migration(2, "Create Users dashboard table")]
-    public class CreateUsersDashboard : Migration
+    public class CreateUsersDashboard: Migration
     {
         protected override void Up()
         {
@@ -205,7 +204,7 @@ public class Exercise09Projections
         databaseConnection = PostgresDbConnectionProvider.GetFreshDbConnection();
 
         var databaseProvider =
-            new PostgresqlDatabaseProvider(databaseConnection) {SchemaName = typeof(Exercise09Projections).Name};
+            new PostgresqlDatabaseProvider(databaseConnection) { SchemaName = typeof(Exercise09Projections).Name };
 
         var migrationsAssembly = typeof(Exercise09Projections).Assembly;
         var migrator = new SimpleMigrator(migrationsAssembly, databaseProvider);

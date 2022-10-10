@@ -16,7 +16,7 @@ public class MeetingsController: Controller
     }
 
     [HttpGet]
-    public Task<IReadOnlyCollection<Meeting>> Search([FromQuery]string filter)
+    public Task<IReadOnlyCollection<Meeting>> Search([FromQuery] string filter)
     {
         return queryBus.Send<SearchMeetings, IReadOnlyCollection<Meeting>>(new SearchMeetings(filter));
     }

@@ -5,7 +5,7 @@ using Orders.Products;
 
 namespace Orders.Shipments.SendingPackage;
 
-public class SendPackage : ICommand
+public class SendPackage: ICommand
 {
     public Guid OrderId { get; }
 

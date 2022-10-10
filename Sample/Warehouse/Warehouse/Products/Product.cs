@@ -1,4 +1,4 @@
-﻿using Warehouse.Products.Primitives;
+using Warehouse.Products.Primitives;
 
 namespace Warehouse.Products;
 
@@ -25,7 +25,7 @@ internal class Product
     // Note: this is needed because we're using SKU DTO.
     // It would work if we had just primitives
     // Should be fixed in .NET 6
-    private Product(){}
+    private Product() { }
 
     public Product(Guid id, SKU sku, string name, string? description)
     {

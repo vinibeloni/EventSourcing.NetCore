@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Shipments.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialMigration: Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

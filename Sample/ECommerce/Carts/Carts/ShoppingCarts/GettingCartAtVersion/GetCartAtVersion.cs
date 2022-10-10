@@ -8,7 +8,7 @@ namespace Carts.ShoppingCarts.GettingCartAtVersion;
 public record GetCartAtVersion(
     Guid CartId,
     long Version
-) : IQuery<ShoppingCartDetails>
+): IQuery<ShoppingCartDetails>
 {
     public static GetCartAtVersion Create(Guid? cartId, long? version)
     {
@@ -21,7 +21,7 @@ public record GetCartAtVersion(
     }
 }
 
-internal class HandleGetCartAtVersion :
+internal class HandleGetCartAtVersion:
     IQueryHandler<GetCartAtVersion, ShoppingCartDetails>
 {
     private readonly IDocumentSession querySession;

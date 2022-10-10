@@ -10,10 +10,10 @@ public interface ITenancyPerSchemaStoreFactory
     IDocumentStore Get(string? tenantId);
 }
 
-public class TenancyPerSchemaStoreFactory : IDisposable, ITenancyPerSchemaStoreFactory
+public class TenancyPerSchemaStoreFactory: IDisposable, ITenancyPerSchemaStoreFactory
 {
     private readonly Action<string, StoreOptions> configure;
-    private readonly ConcurrentDictionary<string, DocumentStore> stores = new ();
+    private readonly ConcurrentDictionary<string, DocumentStore> stores = new();
 
     public TenancyPerSchemaStoreFactory(Action<string, StoreOptions> configure)
     {

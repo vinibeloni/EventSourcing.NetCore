@@ -69,7 +69,7 @@ public class ShoppingCartShortInfo
 
 public static class DatabaseExtensions
 {
-    public static void GetAndStore<T>(this Database database, Guid id, Func<T, T> update) where T : class, new ()
+    public static void GetAndStore<T>(this Database database, Guid id, Func<T, T> update) where T : class, new()
     {
         var item = database.Get<T>(id) ?? new T();
 

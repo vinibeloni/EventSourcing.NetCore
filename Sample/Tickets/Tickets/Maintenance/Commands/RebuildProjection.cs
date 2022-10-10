@@ -2,7 +2,7 @@ using Core.Commands;
 
 namespace Tickets.Maintenance.Commands;
 
-public class RebuildProjection : ICommand
+public class RebuildProjection: ICommand
 {
     public string ViewName { get; }
 

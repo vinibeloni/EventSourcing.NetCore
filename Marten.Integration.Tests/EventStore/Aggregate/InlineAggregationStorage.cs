@@ -35,7 +35,8 @@ public class InlineAggregationStorage: MartenTest
         public void Apply(IssueUpdated @event)
         {
             Issues[@event.IssueId] = Issues[@event.IssueId]
-                with {Description = @event.Description};
+                with
+            { Description = @event.Description };
         }
     }
 

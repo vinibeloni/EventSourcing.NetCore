@@ -9,8 +9,8 @@ namespace Carts.ShoppingCarts.GettingCartHistory;
 
 public class CartHistory: IVersionedProjection
 {
-    public Guid Id { get; set;}
-    public Guid CartId { get; set;}
+    public Guid Id { get; set; }
+    public Guid CartId { get; set; }
     public string Description { get; set; } = default!;
     public ulong LastProcessedPosition { get; set; }
 

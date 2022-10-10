@@ -47,7 +47,7 @@ public class MoreThanOneHandler
             this.issuesList = issuesList;
         }
 
-        public Task<Unit> Handle(CreateIssueCommand command, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<Unit> Handle(CreateIssueCommand command, CancellationToken cancellationToken = default)
         {
             issuesList.Issues.Add(command.IssueName);
             return Unit.Task;

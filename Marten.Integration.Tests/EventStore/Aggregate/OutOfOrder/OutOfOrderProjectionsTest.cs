@@ -41,7 +41,8 @@ public class OutOfOrderProjectionsTest: MartenTest
                 return;
 
             Issues[@event.IssueId] = Issues[@event.IssueId]
-                with {Description = @event.Description};
+                with
+            { Description = @event.Description };
         }
     }
 

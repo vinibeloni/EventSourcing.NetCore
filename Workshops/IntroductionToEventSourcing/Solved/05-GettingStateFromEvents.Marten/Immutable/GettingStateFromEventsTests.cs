@@ -46,7 +46,8 @@ public record ShoppingCart(
     PricedProductItem[] ProductItems,
     DateTime? ConfirmedAt = null,
     DateTime? CanceledAt = null
-){
+)
+{
 
     public static ShoppingCart Create(ShoppingCartOpened opened) =>
         new ShoppingCart(

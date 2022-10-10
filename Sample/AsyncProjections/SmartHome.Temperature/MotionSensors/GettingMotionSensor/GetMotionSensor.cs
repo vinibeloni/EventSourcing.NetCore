@@ -3,9 +3,9 @@ using Marten;
 
 namespace SmartHome.Temperature.MotionSensors.GettingMotionSensor;
 
-public class GetMotionSensors : IQuery<IReadOnlyList<MotionSensor>>
+public class GetMotionSensors: IQuery<IReadOnlyList<MotionSensor>>
 {
-    private GetMotionSensors(){ }
+    private GetMotionSensors() { }
 
     public static GetMotionSensors Create()
     {
@@ -13,7 +13,7 @@ public class GetMotionSensors : IQuery<IReadOnlyList<MotionSensor>>
     }
 }
 
-public class HandleGetMotionSensors : IQueryHandler<GetMotionSensors, IReadOnlyList<MotionSensor>>
+public class HandleGetMotionSensors: IQueryHandler<GetMotionSensors, IReadOnlyList<MotionSensor>>
 {
     private readonly IDocumentSession querySession;
 

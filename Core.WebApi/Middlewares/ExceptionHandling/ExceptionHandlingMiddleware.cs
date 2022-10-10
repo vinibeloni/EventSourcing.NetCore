@@ -38,7 +38,7 @@ public class ExceptionHandlingMiddleware
         logger.LogError(exception, exception.Message);
         Console.WriteLine("ERROR:" + exception.Message + exception.StackTrace);
 
-        if(exception.InnerException != null)
+        if (exception.InnerException != null)
             Console.WriteLine("INNER DETAILS:" + exception.InnerException.Message + exception.InnerException.StackTrace);
 
         var codeInfo = ExceptionToHttpStatusMapper.Map(exception);

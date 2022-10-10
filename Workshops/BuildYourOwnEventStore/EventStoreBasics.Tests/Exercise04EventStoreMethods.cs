@@ -42,7 +42,7 @@ public class Exercise04EventStoreMethods
     public void GetStreamState_ShouldReturnProperStreamInfo()
     {
         var streamId = Guid.NewGuid();
-        var @event = new UserCreated(streamId,"John Doe");
+        var @event = new UserCreated(streamId, "John Doe");
 
         eventStore.AppendEvent<User>(streamId, @event);
 

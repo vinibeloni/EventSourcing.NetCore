@@ -1,4 +1,4 @@
-﻿using Core.Events;
+using Core.Events;
 using Core.Tracing.Causation;
 using Core.Tracing.Correlation;
 using Microsoft.Extensions.DependencyInjection;
@@ -59,7 +59,8 @@ public class TracingScopeFactory: ITracingScopeFactory
 
         var loggerScope = logger.BeginScope(new Dictionary<string, object>
         {
-            [CorrelationId.LoggerScopeKey] = correlationId.Value, [CausationId.LoggerScopeKey] = causationId.Value
+            [CorrelationId.LoggerScopeKey] = correlationId.Value,
+            [CausationId.LoggerScopeKey] = causationId.Value
         });
 
         return new TracingScope(loggerScope, correlationId, causationId);

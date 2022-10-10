@@ -1,4 +1,4 @@
-﻿using Core.Tracing;
+using Core.Tracing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;

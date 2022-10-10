@@ -1,4 +1,4 @@
-﻿using Core.ElasticSearch.Indices;
+using Core.ElasticSearch.Indices;
 using Core.Events;
 using Core.Projections;
 using Elasticsearch.Net;
@@ -7,7 +7,7 @@ using Nest;
 
 namespace Core.ElasticSearch.Projections;
 
-public class ElasticSearchProjection<TEvent, TView> : IEventHandler<EventEnvelope<TEvent>>
+public class ElasticSearchProjection<TEvent, TView>: IEventHandler<EventEnvelope<TEvent>>
     where TView : class, IProjection
     where TEvent : notnull
 {
@@ -29,7 +29,7 @@ public class ElasticSearchProjection<TEvent, TView> : IEventHandler<EventEnvelop
         var indexName = IndexNameMapper.ToIndexName<TView>();
 
         var entity = (await elasticClient.GetAsync<TView>(id, i => i.Index(indexName), ct))?.Source ??
-                     (TView) Activator.CreateInstance(typeof(TView), true)!;
+                     (TView)Activator.CreateInstance(typeof(TView), true)!;
 
         entity.When(eventEnvelope);
 

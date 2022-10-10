@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Warehouse.Api.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Initial: Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

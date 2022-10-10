@@ -1,4 +1,4 @@
-﻿namespace Core.Threading;
+namespace Core.Threading;
 
 public static class NoSynchronizationContextScope
 {

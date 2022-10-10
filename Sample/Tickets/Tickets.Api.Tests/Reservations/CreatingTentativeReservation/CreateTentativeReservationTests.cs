@@ -1,12 +1,12 @@
 using Core.Testing;
 using FluentAssertions;
+using Ogooreck.API;
 using Tickets.Api.Requests;
 using Tickets.Api.Responses;
 using Tickets.Reservations;
 using Tickets.Reservations.GettingReservationById;
 using Tickets.Reservations.GettingReservationHistory;
 using Tickets.Reservations.GettingReservations;
-using Ogooreck.API;
 using Xunit;
 using static Ogooreck.API.ApiSpecification;
 

@@ -33,7 +33,7 @@ public class Order: Aggregate
         );
     }
 
-    public Order(){}
+    public Order() { }
 
     private Order(Guid id, Guid clientId, IReadOnlyList<PricedProductItem> productItems, decimal totalPrice)
     {
@@ -79,7 +79,7 @@ public class Order: Aggregate
 
     public void Complete()
     {
-        if(Status != OrderStatus.Paid)
+        if (Status != OrderStatus.Paid)
             throw new InvalidOperationException($"Cannot complete a not paid order.");
 
         var @event = OrderCompleted.Create(Id, DateTime.UtcNow);
@@ -95,7 +95,7 @@ public class Order: Aggregate
 
     public void Cancel(OrderCancellationReason cancellationReason)
     {
-        if(OrderStatus.Closed.HasFlag(Status))
+        if (OrderStatus.Closed.HasFlag(Status))
             throw new InvalidOperationException($"Cannot cancel a closed order.");
 
         var @event = OrderCancelled.Create(Id, PaymentId, cancellationReason, DateTime.UtcNow);

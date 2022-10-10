@@ -1,4 +1,4 @@
-﻿namespace Core.Tracing.Correlation;
+namespace Core.Tracing.Correlation;
 
 public record CorrelationId(string Value)
 {

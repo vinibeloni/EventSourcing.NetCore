@@ -1,4 +1,4 @@
-﻿using Core.Events;
+using Core.Events;
 using Core.Projections;
 using Marten;
 using Microsoft.Extensions.DependencyInjection;

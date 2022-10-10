@@ -21,8 +21,8 @@ builder.Services
     .AddShipmentsModule(builder.Configuration)
     .AddCorrelationIdMiddleware()
     .AddControllers();
-    // TODO: Add optimistic concurrency here
-    // .AddOptimisticConcurrencyMiddleware();
+// TODO: Add optimistic concurrency here
+// .AddOptimisticConcurrencyMiddleware();
 
 var app = builder.Build();
 

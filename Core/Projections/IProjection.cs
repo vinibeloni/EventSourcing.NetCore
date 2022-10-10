@@ -1,4 +1,4 @@
-﻿namespace Core.Projections;
+namespace Core.Projections;
 
 public interface IProjection
 {

@@ -2,8 +2,8 @@ using Core.BackgroundWorkers;
 using Core.EventStoreDB.OptimisticConcurrency;
 using Core.EventStoreDB.Subscriptions;
 using EventStore.Client;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace Core.EventStoreDB;

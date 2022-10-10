@@ -1,8 +1,8 @@
-﻿using MediatR;
+using MediatR;
 
 namespace EventPipelines.MediatR;
 
-public class MediatorEventRouter<T> : INotificationHandler<T> where T : INotification
+public class MediatorEventRouter<T>: INotificationHandler<T> where T : INotification
 {
     private readonly IEventBus eventBus;
 

@@ -47,7 +47,7 @@ public class MoreThanOneHandler
             this.issuesList = issuesList;
         }
 
-        public Task Handle(IssueCreated @event, CancellationToken cancellationToken = default(CancellationToken))
+        public Task Handle(IssueCreated @event, CancellationToken cancellationToken = default)
         {
             issuesList.Issues.Add(@event.IssueName);
             return Task.CompletedTask;

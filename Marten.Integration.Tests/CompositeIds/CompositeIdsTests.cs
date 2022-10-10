@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Marten.Integration.Tests.CompositeIds;
 
-public class StronglyTypedValue<T>: IEquatable<StronglyTypedValue<T>> where T: IComparable<T>
+public class StronglyTypedValue<T>: IEquatable<StronglyTypedValue<T>> where T : IComparable<T>
 {
     public T Value { get; }
 
@@ -18,16 +18,21 @@ public class StronglyTypedValue<T>: IEquatable<StronglyTypedValue<T>> where T: I
 
     public bool Equals(StronglyTypedValue<T>? other)
     {
-        if (ReferenceEquals(null, other)) return false;
-        if (ReferenceEquals(this, other)) return true;
+        if (other is null)
+            return false;
+        if (ReferenceEquals(this, other))
+            return true;
         return EqualityComparer<T>.Default.Equals(Value, other.Value);
     }
 
     public override bool Equals(object? obj)
     {
-        if (ReferenceEquals(null, obj)) return false;
-        if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != GetType()) return false;
+        if (obj is null)
+            return false;
+        if (ReferenceEquals(this, obj))
+            return true;
+        if (obj.GetType() != GetType())
+            return false;
         return Equals((StronglyTypedValue<T>)obj);
     }
 
@@ -100,7 +105,7 @@ public record ReservationCancelled(
 );
 
 public abstract class Aggregate<TKey, T>
-    where TKey: StronglyTypedValue<T>
+    where TKey : StronglyTypedValue<T>
     where T : IComparable<T>
 {
 
@@ -110,7 +115,7 @@ public abstract class Aggregate<TKey, T>
     public T AggregateId
     {
         get => Id.Value;
-        set {}
+        set { }
     }
 
     public int Version { get; protected set; }
@@ -140,7 +145,7 @@ public enum ReservationStatus
 }
 
 
-public class Reservation : Aggregate<ReservationId, Guid>
+public class Reservation: Aggregate<ReservationId, Guid>
 {
     public CustomerId CustomerId { get; private set; } = default!;
 
@@ -163,7 +168,7 @@ public class Reservation : Aggregate<ReservationId, Guid>
         );
     }
 
-    private Reservation(){}
+    private Reservation() { }
 
     private Reservation(
         ReservationId id,
@@ -186,7 +191,7 @@ public class Reservation : Aggregate<ReservationId, Guid>
 
     public void ChangeSeat(SeatId newSeatId)
     {
-        if(Status != ReservationStatus.Tentative)
+        if (Status != ReservationStatus.Tentative)
             throw new InvalidOperationException($"Changing seat for the reservation in '{Status}' status is not allowed.");
 
         var @event = new ReservationSeatChanged(Id, newSeatId);
@@ -197,7 +202,7 @@ public class Reservation : Aggregate<ReservationId, Guid>
 
     public void Confirm()
     {
-        if(Status != ReservationStatus.Tentative)
+        if (Status != ReservationStatus.Tentative)
             throw new InvalidOperationException($"Only tentative reservation can be confirmed (current status: {Status}.");
 
         var @event = new ReservationConfirmed(Id);
@@ -208,7 +213,7 @@ public class Reservation : Aggregate<ReservationId, Guid>
 
     public void Cancel()
     {
-        if(Status != ReservationStatus.Tentative)
+        if (Status != ReservationStatus.Tentative)
             throw new InvalidOperationException($"Only tentative reservation can be cancelled (current status: {Status}).");
 
         var @event = new ReservationCancelled(Id);

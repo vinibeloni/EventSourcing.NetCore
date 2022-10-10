@@ -20,7 +20,8 @@ public class EventStore
 
     public void Append(EventEnvelope eventEnvelope)
     {
-        if (!handlers.TryGetValue(eventEnvelope.Data.GetType(), out var eventHandlers)) return;
+        if (!handlers.TryGetValue(eventEnvelope.Data.GetType(), out var eventHandlers))
+            return;
 
         foreach (var handle in eventHandlers)
         {

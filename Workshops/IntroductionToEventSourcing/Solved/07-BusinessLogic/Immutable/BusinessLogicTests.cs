@@ -70,11 +70,10 @@ public class BusinessLogicTests
         var pricedPairOfShoes = new PricedProductItem(shoesId, 1, shoesPrice);
         var pricedTShirt = new PricedProductItem(tShirtId, 1, tShirtPrice);
 
-        var events = new List<object>();
-
-        events.Add(
+        var events = new List<object>
+        {
             OpenShoppingCart.Handle(OpenShoppingCart.From(shoppingCartId, clientId))
-        );
+        };
         events.Add(
             AddProductItemToShoppingCart.Handle(
                 FakeProductPriceCalculator.Returning(shoesPrice),

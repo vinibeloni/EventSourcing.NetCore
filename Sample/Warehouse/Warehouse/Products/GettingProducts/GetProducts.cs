@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Warehouse.Core.Queries;
 
 namespace Warehouse.Products.GettingProducts;
 
-internal class HandleGetProducts : IQueryHandler<GetProducts, IReadOnlyList<ProductListItem>>
+internal class HandleGetProducts: IQueryHandler<GetProducts, IReadOnlyList<ProductListItem>>
 {
     private readonly IQueryable<Product> products;
 
@@ -63,7 +63,7 @@ public record GetProducts
         if (pageSize <= 0)
             throw new ArgumentOutOfRangeException(nameof(pageSize));
 
-        return new (filter, page.Value, pageSize.Value);
+        return new(filter, page.Value, pageSize.Value);
     }
 
     public void Deconstruct(out string? filter, out int page, out int pageSize)

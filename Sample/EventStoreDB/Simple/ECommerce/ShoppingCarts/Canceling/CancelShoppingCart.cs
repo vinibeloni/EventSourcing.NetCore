@@ -1,4 +1,4 @@
-﻿namespace ECommerce.ShoppingCarts.Canceling;
+namespace ECommerce.ShoppingCarts.Canceling;
 
 public record CancelShoppingCart(
     Guid ShoppingCartId
@@ -14,7 +14,7 @@ public record CancelShoppingCart(
 
     public static ShoppingCartCanceled Handle(CancelShoppingCart command, ShoppingCart shoppingCart)
     {
-        if(shoppingCart.IsClosed)
+        if (shoppingCart.IsClosed)
             throw new InvalidOperationException($"Canceling cart in '{shoppingCart.Status}' status is not allowed.");
 
         return new ShoppingCartCanceled(

@@ -3,8 +3,8 @@ using Carts.ShoppingCarts;
 using Carts.ShoppingCarts.GettingCartById;
 using Carts.ShoppingCarts.Products;
 using FluentAssertions;
-using Xunit;
 using Ogooreck.API;
+using Xunit;
 using static Ogooreck.API.ApiSpecification;
 
 namespace Carts.Api.Tests.ShoppingCarts.RemovingProduct;

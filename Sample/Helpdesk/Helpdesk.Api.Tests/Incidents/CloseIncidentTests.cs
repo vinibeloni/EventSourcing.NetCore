@@ -35,7 +35,7 @@ public class CloseIncidentTests: IClassFixture<ApiWithAcknowledgedIncident>
     }
 
     private readonly ApiWithAcknowledgedIncident API;
-    private Guid agentId = Guid.NewGuid();
+    private readonly Guid agentId = Guid.NewGuid();
 
     public CloseIncidentTests(ApiWithAcknowledgedIncident api) => API = api;
 }

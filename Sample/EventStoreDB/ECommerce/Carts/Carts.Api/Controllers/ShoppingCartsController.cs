@@ -7,7 +7,6 @@ using Carts.ShoppingCarts.GettingCartHistory;
 using Carts.ShoppingCarts.GettingCarts;
 using Carts.ShoppingCarts.OpeningCart;
 using Carts.ShoppingCarts.Products;
-using Microsoft.AspNetCore.Mvc;
 using Core.Commands;
 using Core.Ids;
 using Core.Marten.Responses;
@@ -15,6 +14,7 @@ using Core.Queries;
 using Core.Responses;
 using Core.WebApi.Headers;
 using Marten.Pagination;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Carts.Api.Controllers;
 
@@ -72,9 +72,9 @@ public class ShoppingCartsController: Controller
     [HttpDelete("{id}/products/{productId}")]
     public async Task<IActionResult> RemoveProduct(
         Guid id,
-        [FromRoute]Guid? productId,
-        [FromQuery]int? quantity,
-        [FromQuery]decimal? unitPrice
+        [FromRoute] Guid? productId,
+        [FromQuery] int? quantity,
+        [FromQuery] decimal? unitPrice
     )
     {
         var command = ShoppingCarts.RemovingProduct.RemoveProduct.Create(

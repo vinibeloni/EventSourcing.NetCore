@@ -21,7 +21,7 @@ internal class CartBuilder
 
     public ShoppingCart Build()
     {
-        var cart = (ShoppingCart) Activator.CreateInstance(typeof(ShoppingCart), true)!;
+        var cart = (ShoppingCart)Activator.CreateInstance(typeof(ShoppingCart), true)!;
 
         foreach (var @event in eventsToApply)
         {

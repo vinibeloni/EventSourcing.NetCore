@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -8,7 +8,7 @@ using Warehouse.Api.Core.Queries;
 
 namespace Warehouse.Api.Products;
 
-internal class HandleGetProducts : IQueryHandler<GetProducts, IReadOnlyList<ProductListItem>>
+internal class HandleGetProducts: IQueryHandler<GetProducts, IReadOnlyList<ProductListItem>>
 {
     private readonly IQueryable<Product> products;
 
@@ -58,7 +58,7 @@ public record GetProducts(
         if (pageSize <= 0)
             throw new ArgumentOutOfRangeException(nameof(pageSize));
 
-        return new (filter, page.Value, pageSize.Value);
+        return new(filter, page.Value, pageSize.Value);
     }
 }
 

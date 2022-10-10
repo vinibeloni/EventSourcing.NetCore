@@ -1,4 +1,4 @@
-﻿using Core.Marten.Events;
+using Core.Marten.Events;
 using Core.Tracing;
 
 namespace Tickets.Tests.Stubs.Events;

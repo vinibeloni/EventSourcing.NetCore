@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 
 namespace Core.EventStoreDB.Subscriptions;
 
@@ -13,7 +13,7 @@ public class InMemorySubscriptionCheckpointRepository: ISubscriptionCheckpointRe
 
     public ValueTask Store(string subscriptionId, ulong position, CancellationToken ct)
     {
-        checkpoints.AddOrUpdate(subscriptionId, position,(_, _) => position);
+        checkpoints.AddOrUpdate(subscriptionId, position, (_, _) => position);
 
         return ValueTask.CompletedTask;
     }

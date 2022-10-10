@@ -7,7 +7,7 @@ namespace Tickets.Reservations.CancellingReservation;
 
 public record CancelReservation(
     Guid ReservationId
-) : ICommand
+): ICommand
 {
     public static CancelReservation Create(Guid? reservationId)
     {

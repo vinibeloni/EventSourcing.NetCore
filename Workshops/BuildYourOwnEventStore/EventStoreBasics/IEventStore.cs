@@ -10,9 +10,9 @@ public interface IEventStore
 
     void AddProjection(IProjection projection);
 
-    bool AppendEvent<TStream>(Guid streamId, object @event, long? expectedVersion = null) where TStream: notnull;
+    bool AppendEvent<TStream>(Guid streamId, object @event, long? expectedVersion = null) where TStream : notnull;
 
-    T AggregateStream<T>(Guid streamId, long? atStreamVersion = null, DateTime? atTimestamp = null) where T: notnull;
+    T AggregateStream<T>(Guid streamId, long? atStreamVersion = null, DateTime? atTimestamp = null) where T : notnull;
 
     StreamState? GetStreamState(Guid streamId);
 

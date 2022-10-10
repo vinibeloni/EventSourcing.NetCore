@@ -40,7 +40,7 @@ public class KafkaProducer: IExternalEventProducer
         }
         catch (Exception e)
         {
-            logger.LogError("Error producing Kafka message: {Message} {StackTrace}",e.Message, e.StackTrace);
+            logger.LogError("Error producing Kafka message: {Message} {StackTrace}", e.Message, e.StackTrace);
             throw;
         }
     }

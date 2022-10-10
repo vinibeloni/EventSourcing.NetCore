@@ -12,12 +12,12 @@ namespace EventStoreBasics.Tests;
 
 public class Exercise08Snapshots
 {
-    class User : Aggregate
+    private class User: Aggregate
     {
         public string Name { get; private set; } = default!;
 
         // added only for dapper deserialization needs
-        private User() {}
+        private User() { }
 
         public User(Guid id, string name)
         {
@@ -47,7 +47,7 @@ public class Exercise08Snapshots
         }
     }
 
-    class UserCreated
+    private class UserCreated
     {
         public Guid UserId { get; }
         public string UserName { get; }
@@ -59,8 +59,7 @@ public class Exercise08Snapshots
         }
     }
 
-
-    class UserNameUpdated
+    private class UserNameUpdated
     {
         public Guid UserId { get; }
         public string UserName { get; }
@@ -73,7 +72,7 @@ public class Exercise08Snapshots
     }
 
     [Migration(1, "Create Users table")]
-    public class CreateUsers : Migration
+    public class CreateUsers: Migration
     {
         protected override void Up()
         {
@@ -102,7 +101,7 @@ public class Exercise08Snapshots
         databaseConnection = PostgresDbConnectionProvider.GetFreshDbConnection();
 
         var databaseProvider =
-            new PostgresqlDatabaseProvider(databaseConnection) {SchemaName = typeof(Exercise08Snapshots).Name};
+            new PostgresqlDatabaseProvider(databaseConnection) { SchemaName = typeof(Exercise08Snapshots).Name };
 
         var migrationsAssembly = typeof(Exercise08Snapshots).Assembly;
         var migrator = new SimpleMigrator(migrationsAssembly, databaseProvider);
@@ -171,7 +170,7 @@ public class Exercise08Snapshots
         var users = databaseConnection.Query<User>(
             @"SELECT id, name, version
                     FROM USERS
-                    WHERE name LIKE '%" + john + "%'" );
+                    WHERE name LIKE '%" + john + "%'");
 
         users.Count().Should().Be(2);
 

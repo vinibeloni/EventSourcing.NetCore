@@ -1,7 +1,7 @@
 using Core.Testing;
+using Ogooreck.API;
 using Payments.Api.Requests.Carts;
 using Xunit;
-using Ogooreck.API;
 using static Ogooreck.API.ApiSpecification;
 
 namespace Payments.Api.Tests.Payments.RequestingPayment;
@@ -22,7 +22,7 @@ public class RequestPaymentsTests: IClassFixture<TestWebApplicationFactory<Progr
     public Task RequestPayment_ShouldReturn_CreatedStatus_With_PaymentId() =>
         API.Given(
                 URI("/api/Payments/"),
-                BODY(new RequestPaymentRequest {OrderId = OrderId, Amount = Amount})
+                BODY(new RequestPaymentRequest { OrderId = OrderId, Amount = Amount })
             )
             .When(POST)
             .Then(CREATED_WITH_DEFAULT_HEADERS(eTag: 1));

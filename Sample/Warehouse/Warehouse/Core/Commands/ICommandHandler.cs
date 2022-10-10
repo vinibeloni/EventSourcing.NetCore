@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Warehouse.Core.Commands;
@@ -13,7 +13,7 @@ public static class CommandHandlerConfiguration
     public static IServiceCollection AddCommandHandler<T, TCommandHandler>(
         this IServiceCollection services,
         Func<IServiceProvider, TCommandHandler>? configure = null
-    ) where TCommandHandler: class, ICommandHandler<T>
+    ) where TCommandHandler : class, ICommandHandler<T>
     {
 
         if (configure == null)

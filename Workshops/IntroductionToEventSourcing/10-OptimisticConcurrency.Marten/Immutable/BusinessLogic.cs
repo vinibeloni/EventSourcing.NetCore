@@ -8,7 +8,8 @@ public record ShoppingCart(
     PricedProductItem[] ProductItems,
     DateTime? ConfirmedAt = null,
     DateTime? CanceledAt = null
-){
+)
+{
     public bool IsClosed => ShoppingCartStatus.Closed.HasFlag(Status);
 
     public static ShoppingCart Create(ShoppingCartOpened opened) =>

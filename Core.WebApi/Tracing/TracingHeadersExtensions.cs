@@ -1,4 +1,4 @@
-﻿using Core.Tracing.Causation;
+using Core.Tracing.Causation;
 using Core.Tracing.Correlation;
 using Microsoft.AspNetCore.Http;
 

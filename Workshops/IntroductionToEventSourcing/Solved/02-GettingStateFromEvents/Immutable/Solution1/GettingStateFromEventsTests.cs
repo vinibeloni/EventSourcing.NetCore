@@ -80,9 +80,9 @@ public class GettingStateFromEventsTests
                     shoppingCart = shoppingCart with
                     {
                         ProductItems = shoppingCart.ProductItems
-                            .Concat(new []{ productItemAdded.ProductItem })
+                            .Concat(new[] { productItemAdded.ProductItem })
                             .GroupBy(pi => pi.ProductId)
-                            .Select(group => group.Count() == 1?
+                            .Select(group => group.Count() == 1 ?
                                 group.First()
                                 : new PricedProductItem(
                                     group.Key,
@@ -97,13 +97,13 @@ public class GettingStateFromEventsTests
                     shoppingCart = shoppingCart with
                     {
                         ProductItems = shoppingCart.ProductItems
-                            .Select(pi => pi.ProductId == productItemRemoved.ProductItem.ProductId?
+                            .Select(pi => pi.ProductId == productItemRemoved.ProductItem.ProductId ?
                                 new PricedProductItem(
                                     pi.ProductId,
                                     pi.Quantity - productItemRemoved.ProductItem.Quantity,
                                     pi.UnitPrice
                                 )
-                                :pi
+                                : pi
                             )
                             .Where(pi => pi.Quantity > 0)
                             .ToArray()

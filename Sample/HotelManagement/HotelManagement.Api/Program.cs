@@ -107,5 +107,5 @@ public class HotelChainProjection: SingleStreamAggregation<HotelChain>
         new(@event.ChainId, @event.Name);
 
     public HotelChain Apply(HotelChainNameChanged @event, HotelChain current) =>
-        current with { Name = @event.Name};
+        current with { Name = @event.Name };
 }

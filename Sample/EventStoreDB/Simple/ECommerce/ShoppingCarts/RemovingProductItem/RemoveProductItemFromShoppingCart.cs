@@ -24,7 +24,7 @@ public record RemoveProductItemFromShoppingCart(
     {
         var (cartId, productItem) = command;
 
-        if(shoppingCart.IsClosed)
+        if (shoppingCart.IsClosed)
             throw new InvalidOperationException($"Adding product item for cart in '{shoppingCart.Status}' status is not allowed.");
 
         shoppingCart.ProductItems.Remove(productItem);

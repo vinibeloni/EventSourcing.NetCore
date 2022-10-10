@@ -1,13 +1,13 @@
-﻿using Core.Tracing;
+using Core.Tracing;
 
 namespace Core.Events;
 
-public interface IAppendScope<TVersion> where TVersion: struct
+public interface IAppendScope<TVersion> where TVersion : struct
 {
     Task Do(Func<TVersion?, TraceMetadata?, Task<TVersion>> handler);
 }
 
-public class AppendScope<TVersion>: IAppendScope<TVersion> where TVersion: struct
+public class AppendScope<TVersion>: IAppendScope<TVersion> where TVersion : struct
 {
     private readonly Func<TVersion?> getExpectedVersion;
     private readonly Action<TVersion> setNextExpectedVersion;

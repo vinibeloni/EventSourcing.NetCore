@@ -58,7 +58,7 @@ public class EventStoreDBSubscriptionToAll
         var checkpoint = await checkpointRepository.Load(SubscriptionId, ct);
 
         await eventStoreClient.SubscribeToAllAsync(
-            checkpoint == null? FromAll.Start : FromAll.After(new Position(checkpoint.Value, checkpoint.Value)),
+            checkpoint == null ? FromAll.Start : FromAll.After(new Position(checkpoint.Value, checkpoint.Value)),
             HandleEvent,
             subscriptionOptions.ResolveLinkTos,
             HandleDrop,
@@ -75,7 +75,8 @@ public class EventStoreDBSubscriptionToAll
     {
         try
         {
-            if (IsEventWithEmptyData(resolvedEvent) || IsCheckpointEvent(resolvedEvent)) return;
+            if (IsEventWithEmptyData(resolvedEvent) || IsCheckpointEvent(resolvedEvent))
+                return;
 
             var eventEnvelope = resolvedEvent.ToEventEnvelope();
 
@@ -169,7 +170,8 @@ public class EventStoreDBSubscriptionToAll
 
     private bool IsEventWithEmptyData(ResolvedEvent resolvedEvent)
     {
-        if (resolvedEvent.Event.Data.Length != 0) return false;
+        if (resolvedEvent.Event.Data.Length != 0)
+            return false;
 
         logger.LogInformation("Event without data received");
         return true;
@@ -177,7 +179,8 @@ public class EventStoreDBSubscriptionToAll
 
     private bool IsCheckpointEvent(ResolvedEvent resolvedEvent)
     {
-        if (resolvedEvent.Event.EventType != EventTypeMapper.ToName<CheckpointStored>()) return false;
+        if (resolvedEvent.Event.EventType != EventTypeMapper.ToName<CheckpointStored>())
+            return false;
 
         logger.LogInformation("Checkpoint event - ignoring");
         return true;

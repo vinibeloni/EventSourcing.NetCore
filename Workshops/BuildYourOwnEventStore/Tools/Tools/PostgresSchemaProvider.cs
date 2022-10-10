@@ -9,8 +9,7 @@ namespace Tools.Tools;
 public class PostgresSchemaProvider
 {
     private readonly NpgsqlConnection databaseConnection;
-
-    const string GetTableColumnsSql =
+    private const string GetTableColumnsSql =
         @"SELECT column_name AS name, data_type AS type
               FROM INFORMATION_SCHEMA.COLUMNS
               WHERE
@@ -33,7 +32,7 @@ public class PostgresSchemaProvider
     /// <returns></returns>
     public Table? GetTable(string tableName)
     {
-        var columns =  databaseConnection.Query<Column>(GetTableColumnsSql, new { tableName }).ToList();
+        var columns = databaseConnection.Query<Column>(GetTableColumnsSql, new { tableName }).ToList();
 
         return columns.Any() ? new Table(tableName, columns) : null;
     }
@@ -45,7 +44,7 @@ public class PostgresSchemaProvider
     /// <returns></returns>
     public bool FunctionExists(string functionName)
     {
-        return databaseConnection.QuerySingle<bool>(FunctionExistsSql, new {functionName});
+        return databaseConnection.QuerySingle<bool>(FunctionExistsSql, new { functionName });
     }
 }
 

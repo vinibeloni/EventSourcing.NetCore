@@ -7,7 +7,7 @@ namespace SmartHome.Temperature.MotionSensors.InstallingMotionSensor;
 
 public record InstallMotionSensor(
     Guid MotionSensorId
-) : ICommand
+): ICommand
 {
     public static InstallMotionSensor Create(
         Guid motionSensorId
@@ -20,7 +20,7 @@ public record InstallMotionSensor(
     }
 }
 
-public class HandleInstallMotionSensor :
+public class HandleInstallMotionSensor:
     ICommandHandler<InstallMotionSensor>
 {
     private readonly IMartenRepository<MotionSensor> repository;

@@ -1,8 +1,8 @@
-﻿using Ogooreck.API;
-using static Ogooreck.API.ApiSpecification;
+using Ogooreck.API;
 using Warehouse.Products.GettingProductDetails;
 using Warehouse.Products.RegisteringProduct;
 using Xunit;
+using static Ogooreck.API.ApiSpecification;
 
 namespace Warehouse.Api.Tests.Products.GettingProductDetails;
 
@@ -38,7 +38,7 @@ public class GetProductDetailsFixture: ApiSpecification<Program>, IAsyncLifetime
 {
     public ProductDetails ExistingProduct = default!;
 
-    public GetProductDetailsFixture(): base(new WarehouseTestWebApplicationFactory()) { }
+    public GetProductDetailsFixture() : base(new WarehouseTestWebApplicationFactory()) { }
 
     public async Task InitializeAsync()
     {

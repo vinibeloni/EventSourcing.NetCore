@@ -89,7 +89,7 @@ public class Queries
             this.readModel = readModel;
         }
 
-        public Task<List<string>> Handle(GetIssuesNamesQuery query, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<List<string>> Handle(GetIssuesNamesQuery query, CancellationToken cancellationToken = default)
         {
             return Task.Run(() => readModel.Issues
                 .Where(taskName => taskName.ToLower().Contains(query.Filter.ToLower()))

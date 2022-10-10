@@ -2,7 +2,7 @@ namespace Core.Exceptions;
 
 public class AggregateNotFoundException: Exception
 {
-    private AggregateNotFoundException(string typeName, string id): base($"{typeName} with id '{id}' was not found")
+    private AggregateNotFoundException(string typeName, string id) : base($"{typeName} with id '{id}' was not found")
     {
     }
 

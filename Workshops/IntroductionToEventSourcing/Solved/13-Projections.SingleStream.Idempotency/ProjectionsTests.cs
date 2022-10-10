@@ -82,10 +82,11 @@ public static class DatabaseExtensions
     {
         var item = database.Get<T>(id);
 
-        if(item == null)
+        if (item == null)
             throw new Exception($"Item with id: '{id}' and expected version: {version} not found!");
 
-        if (item.Version >= version) return;
+        if (item.Version >= version)
+            return;
 
         database.Store(id, version, update(item!));
     }

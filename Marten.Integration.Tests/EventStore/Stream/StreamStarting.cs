@@ -22,7 +22,7 @@ public record Issue(
 
 public class StreamStarting: MartenTest
 {
-    [Fact (Skip = "Skipped because of https://github.com/JasperFx/marten/issues/1648")]
+    [Fact(Skip = "Skipped because of https://github.com/JasperFx/marten/issues/1648")]
     public void GivenNoEvents_WhenStreamIsStarting_ThenEventsAreSavedWithoutError()
     {
         var @event = new IssueCreated(Guid.NewGuid(), "Description");

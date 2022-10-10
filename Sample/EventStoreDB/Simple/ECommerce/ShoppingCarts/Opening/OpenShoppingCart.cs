@@ -1,4 +1,4 @@
-﻿namespace ECommerce.ShoppingCarts.Opening;
+namespace ECommerce.ShoppingCarts.Opening;
 
 public record OpenShoppingCart(
     Guid ShoppingCartId,

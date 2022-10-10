@@ -47,7 +47,7 @@ public record ShoppingCart(
 )
 {
     public static ShoppingCart Default() =>
-        new (default, default, default, Array.Empty<PricedProductItem>());
+        new(default, default, default, Array.Empty<PricedProductItem>());
 
     public static ShoppingCart When(ShoppingCart shoppingCart, object @event)
     {
@@ -64,9 +64,9 @@ public record ShoppingCart(
                 shoppingCart with
                 {
                     ProductItems = shoppingCart.ProductItems
-                        .Concat(new [] { pricedProductItem })
+                        .Concat(new[] { pricedProductItem })
                         .GroupBy(pi => pi.ProductId)
-                        .Select(group => group.Count() == 1?
+                        .Select(group => group.Count() == 1 ?
                             group.First()
                             : new PricedProductItem(
                                 group.Key,
@@ -80,13 +80,13 @@ public record ShoppingCart(
                 shoppingCart with
                 {
                     ProductItems = shoppingCart.ProductItems
-                        .Select(pi => pi.ProductId == pricedProductItem.ProductId?
+                        .Select(pi => pi.ProductId == pricedProductItem.ProductId ?
                             new PricedProductItem(
                                 pi.ProductId,
                                 pi.Quantity - pricedProductItem.Quantity,
                                 pi.UnitPrice
                             )
-                            :pi
+                            : pi
                         )
                         .Where(pi => pi.Quantity > 0)
                         .ToArray()

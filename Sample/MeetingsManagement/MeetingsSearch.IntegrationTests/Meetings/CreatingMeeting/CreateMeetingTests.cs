@@ -3,8 +3,8 @@ using Core.Testing;
 using FluentAssertions;
 using MeetingsSearch.Meetings;
 using MeetingsSearch.Meetings.CreatingMeeting;
-using Xunit;
 using Ogooreck.API;
+using Xunit;
 using static Ogooreck.API.ApiSpecification;
 
 namespace MeetingsSearch.IntegrationTests.Meetings.CreatingMeeting;

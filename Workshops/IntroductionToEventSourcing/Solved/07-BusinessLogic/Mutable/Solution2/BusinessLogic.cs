@@ -9,7 +9,7 @@ public interface IAggregate
 
 public class ShoppingCart: IAggregate
 {
-    public Guid Id { get; private set;  }
+    public Guid Id { get; private set; }
     public Guid ClientId { get; private set; }
     public ShoppingCartStatus Status { get; private set; }
     public IList<PricedProductItem> ProductItems { get; } = new List<PricedProductItem>();

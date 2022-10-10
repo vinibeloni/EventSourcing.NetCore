@@ -99,7 +99,7 @@ public class EventStore: IDisposable, IEventStore
                   WHERE id = @streamId";
 
         return databaseConnection
-            .Query<dynamic>(getStreamSql, new {streamId})
+            .Query<dynamic>(getStreamSql, new { streamId })
             .Select(streamData =>
                 new StreamState(
                     streamData.id,
@@ -120,7 +120,7 @@ public class EventStore: IDisposable, IEventStore
                   ORDER BY version";
 
         return databaseConnection
-            .Query<dynamic>(getStreamSql, new {streamId, atStreamVersion, atTimestamp})
+            .Query<dynamic>(getStreamSql, new { streamId, atStreamVersion, atTimestamp })
             .Select(@event =>
                 JsonConvert.DeserializeObject(
                     @event.data,

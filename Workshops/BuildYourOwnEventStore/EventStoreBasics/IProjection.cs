@@ -6,7 +6,7 @@ public interface IProjection
     void Handle(object @event);
 }
 
-public abstract class Projection : IProjection
+public abstract class Projection: IProjection
 {
     private readonly Dictionary<Type, Action<object>> handlers = new Dictionary<Type, Action<object>>();
 
@@ -14,7 +14,7 @@ public abstract class Projection : IProjection
 
     protected void Projects<TEvent>(Action<TEvent> action)
     {
-        handlers.Add(typeof(TEvent), @event => action((TEvent) @event));
+        handlers.Add(typeof(TEvent), @event => action((TEvent)@event));
     }
 
     public void Handle(object @event)

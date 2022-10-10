@@ -7,7 +7,7 @@ namespace EventStoreBasics.Tests;
 
 public class Exercise06TimeTravelling
 {
-    class User
+    private class User
     {
         public Guid Id { get; private set; }
         public string Name { get; private set; } = default!;
@@ -34,7 +34,7 @@ public class Exercise06TimeTravelling
         }
     }
 
-    class UserCreated
+    private class UserCreated
     {
         public Guid UserId { get; }
         public string UserName { get; }
@@ -46,8 +46,7 @@ public class Exercise06TimeTravelling
         }
     }
 
-
-    class UserNameUpdated
+    private class UserNameUpdated
     {
         public Guid UserId { get; }
         public string UserName { get; }

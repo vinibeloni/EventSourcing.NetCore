@@ -6,7 +6,7 @@ namespace SmartHome.Temperature.MotionSensors.RebuildingMotionSensorsViews;
 
 public record RebuildMotionSensorsViews: ICommand;
 
-public class HandleRebuildMotionSensorsViews :
+public class HandleRebuildMotionSensorsViews:
     ICommandHandler<RebuildMotionSensorsViews>
 {
     private readonly IDocumentSession session;

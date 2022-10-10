@@ -92,7 +92,8 @@ public static class DatabaseExtensions
 
             triesLeft--;
 
-            if(triesLeft > 0) Thread.Sleep(50);
+            if (triesLeft > 0)
+                Thread.Sleep(50);
 
         } while (item == null && triesLeft > 0);
 

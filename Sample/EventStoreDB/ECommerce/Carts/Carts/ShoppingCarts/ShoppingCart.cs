@@ -27,7 +27,7 @@ public class ShoppingCart: Aggregate
         return new ShoppingCart(cartId, clientId);
     }
 
-    private ShoppingCart(){}
+    private ShoppingCart() { }
 
     public override void When(object @event)
     {
@@ -79,7 +79,7 @@ public class ShoppingCart: Aggregate
         IProductPriceCalculator productPriceCalculator,
         ProductItem productItem)
     {
-        if(Status != ShoppingCartStatus.Pending)
+        if (Status != ShoppingCartStatus.Pending)
             throw new InvalidOperationException($"Adding product for the cart in '{Status}' status is not allowed.");
 
         var pricedProductItem = productPriceCalculator.Calculate(productItem).Single();
@@ -113,7 +113,7 @@ public class ShoppingCart: Aggregate
     public void RemoveProduct(
         PricedProductItem productItemToBeRemoved)
     {
-        if(Status != ShoppingCartStatus.Pending)
+        if (Status != ShoppingCartStatus.Pending)
             throw new InvalidOperationException($"Removing product from the cart in '{Status}' status is not allowed.");
 
         var existingProductItem = FindProductItemMatchingWith(productItemToBeRemoved);
@@ -121,7 +121,7 @@ public class ShoppingCart: Aggregate
         if (existingProductItem is null)
             throw new InvalidOperationException($"Product with id `{productItemToBeRemoved.ProductId}` and price '{productItemToBeRemoved.UnitPrice}' was not found in cart.");
 
-        if(!existingProductItem.HasEnough(productItemToBeRemoved.Quantity))
+        if (!existingProductItem.HasEnough(productItemToBeRemoved.Quantity))
             throw new InvalidOperationException($"Cannot remove {productItemToBeRemoved.Quantity} items of Product with id `{productItemToBeRemoved.ProductId}` as there are only ${existingProductItem.Quantity} items in card");
 
         var @event = ProductRemoved.Create(Id, productItemToBeRemoved);
@@ -155,7 +155,7 @@ public class ShoppingCart: Aggregate
 
     public void Confirm()
     {
-        if(Status != ShoppingCartStatus.Pending)
+        if (Status != ShoppingCartStatus.Pending)
             throw new InvalidOperationException($"Confirming cart in '{Status}' status is not allowed.");
 
         var @event = ShoppingCartConfirmed.Create(Id, DateTime.UtcNow);
@@ -173,7 +173,7 @@ public class ShoppingCart: Aggregate
 
     public void Cancel()
     {
-        if(Status != ShoppingCartStatus.Pending)
+        if (Status != ShoppingCartStatus.Pending)
             throw new InvalidOperationException($"Confirming cart in '{Status}' status is not allowed.");
 
         var @event = ShoppingCartCanceled.Create(Id, DateTime.UtcNow);

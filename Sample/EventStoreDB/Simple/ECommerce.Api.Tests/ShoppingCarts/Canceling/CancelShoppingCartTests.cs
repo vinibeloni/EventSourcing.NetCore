@@ -11,7 +11,7 @@ namespace Carts.Api.Tests.ShoppingCarts.Canceling;
 
 public class CancelShoppingCartFixture: ApiSpecification<Program>, IAsyncLifetime
 {
-    public CancelShoppingCartFixture(): base(new ShoppingCartsApplicationFactory()) { }
+    public CancelShoppingCartFixture() : base(new ShoppingCartsApplicationFactory()) { }
 
     public Guid ShoppingCartId { get; private set; }
 

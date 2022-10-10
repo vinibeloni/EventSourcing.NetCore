@@ -1,4 +1,4 @@
-﻿using System.Threading;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +16,7 @@ public static class EntitiesExtensions
 
     public static ValueTask<T?> Find<T, TId>(this DbContext dbContext, TId id, CancellationToken ct)
         where T : class where TId : notnull
-        => dbContext.FindAsync<T>(new object[] {id}, ct);
+        => dbContext.FindAsync<T>(new object[] { id }, ct);
 
     public static IServiceCollection AddQueryable<T, TDbContext>(this IServiceCollection services)
         where TDbContext : DbContext

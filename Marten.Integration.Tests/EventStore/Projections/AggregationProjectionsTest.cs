@@ -37,14 +37,15 @@ public class AggregationProjectionsTest: MartenTest
         public void Apply(IssueUpdated @event)
         {
             Issues[@event.IssueId] = Issues[@event.IssueId]
-                with {Description = @event.Description};
+                with
+            { Description = @event.Description };
         }
     }
 
     public class IssueDescriptions
     {
         public Guid Id { get; set; }
-        public Dictionary<Guid, string> Descriptions { get; } = new ();
+        public Dictionary<Guid, string> Descriptions { get; } = new();
 
         public void Apply(IssueCreated @event)
         {

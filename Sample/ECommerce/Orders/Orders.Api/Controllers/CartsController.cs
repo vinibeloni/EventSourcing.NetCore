@@ -1,7 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
 using Core.Commands;
 using Core.Ids;
 using Core.Queries;
+using Microsoft.AspNetCore.Mvc;
 using Orders.Api.Requests.Carts;
 using Orders.Orders.CompletingOrder;
 using Orders.Orders.InitializingOrder;
@@ -35,7 +35,7 @@ public class OrdersController: Controller
             orderId,
             request?.ClientId,
             request?.ProductItems?.Select(
-                pi => PricedProductItem.Create(pi.ProductId, pi.Quantity,pi.UnitPrice)).ToList(),
+                pi => PricedProductItem.Create(pi.ProductId, pi.Quantity, pi.UnitPrice)).ToList(),
             request?.TotalPrice
         );
 

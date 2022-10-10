@@ -58,12 +58,12 @@ public class Exercise03CreateAppendEventFunction
         result.Should().BeTrue();
 
         var wasStreamCreated = databaseConnection.QuerySingle<bool>(
-            "select exists (select 1 from streams where id = @streamId)", new {streamId}
+            "select exists (select 1 from streams where id = @streamId)", new { streamId }
         );
         wasStreamCreated.Should().BeTrue();
 
         var wasEventAppended = databaseConnection.QuerySingle<bool>(
-            "select exists (select 1 from events where stream_id = @streamId)", new {streamId}
+            "select exists (select 1 from events where stream_id = @streamId)", new { streamId }
         );
         wasEventAppended.Should().BeTrue();
     }

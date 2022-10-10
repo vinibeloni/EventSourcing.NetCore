@@ -1,4 +1,4 @@
-﻿using Core.Serialization.Newtonsoft;
+using Core.Serialization.Newtonsoft;
 using Marten;
 using Marten.Services.Json;
 using Newtonsoft.Json.Serialization;
@@ -10,7 +10,7 @@ public class NonDefaultConstructorMartenJsonNetContractResolver: JsonNetContract
     public NonDefaultConstructorMartenJsonNetContractResolver(
         Casing casing,
         CollectionStorage collectionStorage,
-        NonPublicMembersStorage nonPublicMembersStorage = NonPublicMembersStorage.Default):
+        NonPublicMembersStorage nonPublicMembersStorage = NonPublicMembersStorage.Default) :
         base(casing, collectionStorage, nonPublicMembersStorage)
     {
 

@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using FluentAssertions;
 using Xunit;
 using V1 = ECommerce.V1;
@@ -17,27 +17,27 @@ public class ChangedStructure
         Client Client
     );
 
-public static V1.ShoppingCartOpened Downcast(
-    ShoppingCartOpened newEvent
-)
-{
-    return new V1.ShoppingCartOpened(
-        newEvent.ShoppingCartId,
-        newEvent.Client.Id
-    );
-}
+    public static V1.ShoppingCartOpened Downcast(
+        ShoppingCartOpened newEvent
+    )
+    {
+        return new V1.ShoppingCartOpened(
+            newEvent.ShoppingCartId,
+            newEvent.Client.Id
+        );
+    }
 
-public static V1.ShoppingCartOpened Downcast(
-    string newEventJson
-)
-{
-    var newEvent = JsonDocument.Parse(newEventJson).RootElement;
+    public static V1.ShoppingCartOpened Downcast(
+        string newEventJson
+    )
+    {
+        var newEvent = JsonDocument.Parse(newEventJson).RootElement;
 
-    return new V1.ShoppingCartOpened(
-        newEvent.GetProperty("ShoppingCartId").GetGuid(),
-        newEvent.GetProperty("Client").GetProperty("Id").GetGuid()
-    );
-}
+        return new V1.ShoppingCartOpened(
+            newEvent.GetProperty("ShoppingCartId").GetGuid(),
+            newEvent.GetProperty("Client").GetProperty("Id").GetGuid()
+        );
+    }
 
     [Fact]
     public void UpcastObjects_Should_BeForwardCompatible()
@@ -45,7 +45,7 @@ public static V1.ShoppingCartOpened Downcast(
         // Given
         var newEvent = new ShoppingCartOpened(
             Guid.NewGuid(),
-            new Client( Guid.NewGuid(), "Oskar the Grouch")
+            new Client(Guid.NewGuid(), "Oskar the Grouch")
         );
 
         // When
@@ -62,7 +62,7 @@ public static V1.ShoppingCartOpened Downcast(
         // Given
         var newEvent = new ShoppingCartOpened(
             Guid.NewGuid(),
-            new Client( Guid.NewGuid(), "Oskar the Grouch")
+            new Client(Guid.NewGuid(), "Oskar the Grouch")
         );
         // When
         var @event = Downcast(

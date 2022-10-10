@@ -1,9 +1,9 @@
-﻿using Warehouse.Core.Commands;
+using Warehouse.Core.Commands;
 using Warehouse.Products.Primitives;
 
 namespace Warehouse.Products.RegisteringProduct;
 
-internal class HandleRegisterProduct : ICommandHandler<RegisterProduct>
+internal class HandleRegisterProduct: ICommandHandler<RegisterProduct>
 {
     private readonly Func<Product, CancellationToken, ValueTask> addProduct;
     private readonly Func<SKU, CancellationToken, ValueTask<bool>> productWithSKUExists;
@@ -36,7 +36,7 @@ internal class HandleRegisterProduct : ICommandHandler<RegisterProduct>
 
 public record RegisterProduct
 {
-    public Guid ProductId { get;}
+    public Guid ProductId { get; }
 
     public SKU SKU { get; }
 
@@ -54,10 +54,14 @@ public record RegisterProduct
 
     public static RegisterProduct Create(Guid? id, string? sku, string? name, string? description)
     {
-        if (!id.HasValue || id == Guid.Empty) throw new ArgumentOutOfRangeException(nameof(id));
-        if (string.IsNullOrEmpty(sku)) throw new ArgumentOutOfRangeException(nameof(sku));
-        if (string.IsNullOrEmpty(name)) throw new ArgumentOutOfRangeException(nameof(name));
-        if (description is "") throw new ArgumentOutOfRangeException(nameof(name));
+        if (!id.HasValue || id == Guid.Empty)
+            throw new ArgumentOutOfRangeException(nameof(id));
+        if (string.IsNullOrEmpty(sku))
+            throw new ArgumentOutOfRangeException(nameof(sku));
+        if (string.IsNullOrEmpty(name))
+            throw new ArgumentOutOfRangeException(nameof(name));
+        if (description is "")
+            throw new ArgumentOutOfRangeException(nameof(name));
 
         return new RegisterProduct(id.Value, SKU.Create(sku), name, description);
     }

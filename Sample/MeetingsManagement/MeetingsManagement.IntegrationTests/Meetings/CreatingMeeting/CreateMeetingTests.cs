@@ -1,7 +1,7 @@
 using Core.Testing;
 using MeetingsManagement.Meetings.CreatingMeeting;
-using Xunit;
 using Ogooreck.API;
+using Xunit;
 using static Ogooreck.API.ApiSpecification;
 
 namespace MeetingsManagement.IntegrationTests.Meetings.CreatingMeeting;

@@ -1,4 +1,4 @@
-﻿namespace ECommerce.ShoppingCarts.Confirming;
+namespace ECommerce.ShoppingCarts.Confirming;
 
 public record ConfirmShoppingCart(
     Guid ShoppingCartId
@@ -14,7 +14,7 @@ public record ConfirmShoppingCart(
 
     public static ShoppingCartConfirmed Handle(ConfirmShoppingCart command, ShoppingCart shoppingCart)
     {
-        if(shoppingCart.IsClosed)
+        if (shoppingCart.IsClosed)
             throw new InvalidOperationException($"Confirming cart in '{shoppingCart.Status}' status is not allowed.");
 
         return new ShoppingCartConfirmed(

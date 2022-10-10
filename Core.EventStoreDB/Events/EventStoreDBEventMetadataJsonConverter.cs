@@ -1,11 +1,11 @@
-﻿using Core.Tracing;
+using Core.Tracing;
 using Core.Tracing.Causation;
 using Core.Tracing.Correlation;
 using Newtonsoft.Json;
 
 namespace Core.EventStoreDB.Events;
 
-public class EventStoreDBEventMetadataJsonConverter : JsonConverter
+public class EventStoreDBEventMetadataJsonConverter: JsonConverter
 {
     private const string CorrelationIdPropertyName = "$correlationId";
     private const string CausationIdPropertyName = "$causationId";
@@ -43,14 +43,15 @@ public class EventStoreDBEventMetadataJsonConverter : JsonConverter
         do
         {
 
-            if (!reader.Read()) break;
+            if (!reader.Read())
+                break;
 
             if (reader.Value is not string propertyName)
                 continue;
 
             var propertyValue = reader.ReadAsString();
 
-            if(propertyValue == null)
+            if (propertyValue == null)
                 continue;
 
             switch (propertyName)

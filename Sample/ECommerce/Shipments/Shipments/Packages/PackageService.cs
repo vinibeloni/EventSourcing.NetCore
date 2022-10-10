@@ -66,7 +66,7 @@ internal class PackageService: IPackageService
             Id = Guid.NewGuid(),
             OrderId = request.OrderId,
             ProductItems = request.ProductItems.Select(pi =>
-                new ProductItem {Id = Guid.NewGuid(), ProductId = pi.ProductId, Quantity = pi.Quantity}).ToList(),
+                new ProductItem { Id = Guid.NewGuid(), ProductId = pi.ProductId, Quantity = pi.Quantity }).ToList(),
             SentAt = DateTime.UtcNow
         };
 

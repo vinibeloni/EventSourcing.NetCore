@@ -14,7 +14,7 @@ public class EventStoreDBAppendScope: AppendScope<ulong>, IEventStoreDBAppendSco
         Func<ulong?> getExpectedVersion,
         Action<ulong> setNextExpectedVersion,
         Func<TraceMetadata?> getEventMetadata
-    ): base(getExpectedVersion, setNextExpectedVersion, getEventMetadata)
+    ) : base(getExpectedVersion, setNextExpectedVersion, getEventMetadata)
     {
     }
 }

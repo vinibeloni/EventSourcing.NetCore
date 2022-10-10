@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 
 namespace EventPipelines;
 
@@ -49,7 +49,7 @@ public class EventHandlerWrapper<TEvent>: IEventHandler<TEvent>
         handler(@event, ct);
 }
 
-public interface IEventTransformation<in TEvent, TTransformedEvent> : IEventHandler
+public interface IEventTransformation<in TEvent, TTransformedEvent>: IEventHandler
 {
     Type IEventHandler.CanHandle => typeof(TEvent);
 
@@ -95,7 +95,7 @@ public class EventTransformationWrapper<TEvent>: EventTransformationWrapper<TEve
     }
 }
 
-public interface IEventFilter<in TEvent> : IEventHandler
+public interface IEventFilter<in TEvent>: IEventHandler
 {
     Type IEventHandler.CanHandle => typeof(TEvent);
 
@@ -155,7 +155,7 @@ public class EventBus: IEventBus
         {
             var result = await handler.Handle(@event, ct);
 
-            if(result == null)
+            if (result == null)
                 break;
 
             if (result == @event)

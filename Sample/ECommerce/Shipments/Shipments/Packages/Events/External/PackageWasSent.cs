@@ -3,7 +3,7 @@ using Shipments.Products;
 
 namespace Shipments.Packages.Events.External;
 
-internal class PackageWasSent : IExternalEvent
+internal class PackageWasSent: IExternalEvent
 {
 
     public Guid PackageId { get; }

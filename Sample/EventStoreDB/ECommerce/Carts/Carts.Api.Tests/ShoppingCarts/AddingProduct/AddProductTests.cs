@@ -4,8 +4,8 @@ using Carts.ShoppingCarts.GettingCartById;
 using Carts.ShoppingCarts.Products;
 using FluentAssertions;
 using Ogooreck.API;
-using static Ogooreck.API.ApiSpecification;
 using Xunit;
+using static Ogooreck.API.ApiSpecification;
 
 namespace Carts.Api.Tests.ShoppingCarts.AddingProduct;
 

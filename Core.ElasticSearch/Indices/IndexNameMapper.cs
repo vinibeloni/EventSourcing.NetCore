@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 
 namespace Core.ElasticSearch.Indices;
 
@@ -29,7 +29,7 @@ public class IndexNameMapper
 
     public static string ToIndexName(Type streamType, object? tenantId = null)
     {
-        var tenantPrefix = tenantId != null ? $"{tenantId}-"  : "";
+        var tenantPrefix = tenantId != null ? $"{tenantId}-" : "";
 
         return $"{tenantPrefix}{ToIndexPrefix(streamType)}".ToLower();
     }

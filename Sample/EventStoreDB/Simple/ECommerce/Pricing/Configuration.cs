@@ -1,4 +1,4 @@
-﻿using ECommerce.Pricing.ProductPricing;
+using ECommerce.Pricing.ProductPricing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ECommerce.Pricing;

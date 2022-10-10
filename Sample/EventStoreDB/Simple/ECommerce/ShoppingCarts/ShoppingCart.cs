@@ -1,4 +1,4 @@
-﻿using ECommerce.ShoppingCarts.ProductItems;
+using ECommerce.ShoppingCarts.ProductItems;
 
 namespace ECommerce.ShoppingCarts;
 
@@ -51,7 +51,7 @@ public record ShoppingCart(
     {
         return @event switch
         {
-            ShoppingCartOpened (var cartId, var clientId) =>
+            ShoppingCartOpened(var cartId, var clientId) =>
                 entity with
                 {
                     Id = cartId,
@@ -60,26 +60,26 @@ public record ShoppingCart(
                     ProductItems = ProductItemsList.Empty()
                 },
 
-            ProductItemAddedToShoppingCart (_, var productItem) =>
+            ProductItemAddedToShoppingCart(_, var productItem) =>
                 entity with
                 {
                     ProductItems = entity.ProductItems.Add(productItem)
                 },
 
-            ProductItemRemovedFromShoppingCart (_, var productItem) =>
+            ProductItemRemovedFromShoppingCart(_, var productItem) =>
                 entity with
                 {
                     ProductItems = entity.ProductItems.Remove(productItem)
                 },
 
-            ShoppingCartConfirmed (_, var confirmedAt) =>
+            ShoppingCartConfirmed(_, var confirmedAt) =>
                 entity with
                 {
                     Status = ShoppingCartStatus.Confirmed,
                     ConfirmedAt = confirmedAt
                 },
 
-            ShoppingCartCanceled (_, var canceledAt) =>
+            ShoppingCartCanceled(_, var canceledAt) =>
                 entity with
                 {
                     Status = ShoppingCartStatus.Canceled,
@@ -90,7 +90,7 @@ public record ShoppingCart(
     }
 
     public static ShoppingCart Default() =>
-        new (default, default, default, ProductItemsList.Empty(), default, default);
+        new(default, default, default, ProductItemsList.Empty(), default, default);
 
     public static string MapToStreamId(Guid shoppingCartId) =>
         $"ShoppingCart-{shoppingCartId}";

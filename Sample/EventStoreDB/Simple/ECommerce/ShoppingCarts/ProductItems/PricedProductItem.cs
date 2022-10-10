@@ -28,9 +28,9 @@ public record PricedProductItem(
 
     public PricedProductItem MergeWith(PricedProductItem productItem)
     {
-        if(ProductId != productItem.ProductId)
+        if (ProductId != productItem.ProductId)
             throw new ArgumentException("Product ids do not match.");
-        if(UnitPrice != productItem.UnitPrice)
+        if (UnitPrice != productItem.UnitPrice)
             throw new ArgumentException("Product unit prices do not match.");
 
         return new PricedProductItem(

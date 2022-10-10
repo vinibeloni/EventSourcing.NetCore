@@ -1,4 +1,4 @@
-﻿namespace Core.EventStoreDB.Subscriptions;
+namespace Core.EventStoreDB.Subscriptions;
 
 public interface ISubscriptionCheckpointRepository
 {

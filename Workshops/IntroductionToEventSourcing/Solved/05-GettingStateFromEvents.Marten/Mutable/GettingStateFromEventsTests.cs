@@ -136,17 +136,23 @@ public class GettingStateFromEventsTests: MartenTest
         var twoPairsOfShoes =
             new PricedProductItem
             {
-                ProductId = shoesId, Quantity = 2, UnitPrice = 100
+                ProductId = shoesId,
+                Quantity = 2,
+                UnitPrice = 100
             };
         var pairOfShoes =
             new PricedProductItem
             {
-                ProductId = shoesId, Quantity = 1, UnitPrice = 100
+                ProductId = shoesId,
+                Quantity = 1,
+                UnitPrice = 100
             };
         var tShirt =
             new PricedProductItem
             {
-                ProductId = tShirtId, Quantity = 1, UnitPrice = 50
+                ProductId = tShirtId,
+                Quantity = 1,
+                UnitPrice = 50
             };
 
         var events = new object[]

@@ -33,7 +33,7 @@ public class MeetingsController: Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody]CreateMeeting command)
+    public async Task<IActionResult> Post([FromBody] CreateMeeting command)
     {
         await commandBus.Send(command);
 
@@ -41,7 +41,7 @@ public class MeetingsController: Controller
     }
 
     [HttpPost("{id}/schedule")]
-    public async Task<IActionResult> Post(Guid id, [FromBody]DateRange occurs)
+    public async Task<IActionResult> Post(Guid id, [FromBody] DateRange occurs)
     {
         var command = new ScheduleMeeting(id, occurs);
         await commandBus.Send(command);

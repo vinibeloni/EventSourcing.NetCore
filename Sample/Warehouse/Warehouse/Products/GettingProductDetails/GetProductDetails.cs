@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Warehouse.Core.Primitives;
 using Warehouse.Core.Queries;
 
@@ -33,7 +33,7 @@ internal class HandleGetProductDetails: IQueryHandler<GetProductDetails, Product
 
 public record GetProductDetails
 {
-    public Guid ProductId { get;}
+    public Guid ProductId { get; }
 
     private GetProductDetails(Guid productId)
     {

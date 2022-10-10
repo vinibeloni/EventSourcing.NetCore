@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 using Core.Events;
 using Core.EventStoreDB.Events;
 using Core.Serialization.Newtonsoft;

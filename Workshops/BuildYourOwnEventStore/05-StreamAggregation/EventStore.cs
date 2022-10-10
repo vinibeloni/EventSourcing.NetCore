@@ -25,7 +25,7 @@ public class EventStore: IDisposable, IEventStore
         CreateAppendEventFunction();
     }
 
-    public bool AppendEvent<TStream>(Guid streamId, object @event, long? expectedVersion = null) where TStream: notnull
+    public bool AppendEvent<TStream>(Guid streamId, object @event, long? expectedVersion = null) where TStream : notnull
     {
         return databaseConnection.QuerySingle<bool>(
             "SELECT append_event(@Id, @Data::jsonb, @Type, @StreamId, @StreamType, @ExpectedVersion)",
@@ -42,7 +42,7 @@ public class EventStore: IDisposable, IEventStore
         );
     }
 
-    public T AggregateStream<T>(Guid streamId) where T: notnull
+    public T AggregateStream<T>(Guid streamId) where T : notnull
     {
         // 1. Create instance
         // 2. Get Stream Events

@@ -1,4 +1,4 @@
-﻿namespace Core.EventStoreDB.OptimisticConcurrency;
+namespace Core.EventStoreDB.OptimisticConcurrency;
 
 public class EventStoreDBExpectedStreamRevisionProvider
 {

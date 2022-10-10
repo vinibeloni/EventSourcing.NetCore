@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -11,7 +11,7 @@ public static class Route
 {
     internal static IEndpointRouteBuilder UseGetProductsEndpoint(this IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapGet("/api/products", async (HttpContext context, [FromQuery]string? filter, [FromQuery]int? page, [FromQuery]int? pageSize) =>
+        endpoints.MapGet("/api/products", async (HttpContext context, [FromQuery] string? filter, [FromQuery] int? page, [FromQuery] int? pageSize) =>
         {
             var query = GetProducts.Create(filter, page, pageSize);
 

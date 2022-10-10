@@ -4,14 +4,14 @@ using ECommerce.ShoppingCarts.GettingCartById;
 using FluentAssertions;
 using Ogooreck.API;
 using Warehouse.Api.Tests;
-using static Ogooreck.API.ApiSpecification;
 using Xunit;
+using static Ogooreck.API.ApiSpecification;
 
 namespace Carts.Api.Tests.ShoppingCarts.AddingProduct;
 
 public class AddProductFixture: ApiSpecification<Program>, IAsyncLifetime
 {
-    public AddProductFixture(): base(new ShoppingCartsApplicationFactory()) { }
+    public AddProductFixture() : base(new ShoppingCartsApplicationFactory()) { }
 
     public Guid ShoppingCartId { get; private set; }
 

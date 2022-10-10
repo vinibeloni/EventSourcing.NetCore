@@ -7,8 +7,8 @@ using Core.WebApi.OptimisticConcurrency;
 using Core.WebApi.Swagger;
 using Core.WebApi.Tracing;
 using ECommerce;
-using EventStore.Client;
 using ECommerce.Core;
+using EventStore.Client;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);

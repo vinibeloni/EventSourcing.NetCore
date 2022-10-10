@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Warehouse.Migrations
 {
-    public partial class InitialSetup : Migration
+    public partial class InitialSetup: Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

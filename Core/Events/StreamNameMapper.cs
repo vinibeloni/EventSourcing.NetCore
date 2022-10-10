@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+using System.Collections.Concurrent;
 
 namespace Core.Events;
 
@@ -37,7 +37,7 @@ public class StreamNameMapper
     /// <returns></returns>
     public static string ToStreamId(Type streamType, object aggregateId, object? tenantId = null)
     {
-        var tenantPrefix = tenantId != null ? $"{tenantId}_"  : "";
+        var tenantPrefix = tenantId != null ? $"{tenantId}_" : "";
         var streamCategory = ToStreamPrefix(streamType);
 
         // (Out-of-the box, the category projection treats anything before a `-` separator as the category name)

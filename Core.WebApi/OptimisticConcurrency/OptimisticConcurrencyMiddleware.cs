@@ -1,4 +1,4 @@
-﻿using Core.OptimisticConcurrency;
+using Core.OptimisticConcurrency;
 using Core.WebApi.Headers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -48,11 +48,13 @@ public class OptimisticConcurrencyMiddleware
         IExpectedResourceVersionProvider expectedResourceVersionProvider
     )
     {
-        if (!SupportedMethods.Contains(context.Request.Method)) return;
+        if (!SupportedMethods.Contains(context.Request.Method))
+            return;
 
         var ifMatchHeader = context.GetIfMatchRequestHeader();
 
-        if (ifMatchHeader == null || Equals(ifMatchHeader, EntityTagHeaderValue.Any)) return;
+        if (ifMatchHeader == null || Equals(ifMatchHeader, EntityTagHeaderValue.Any))
+            return;
 
         if (!expectedResourceVersionProvider.TrySet(ifMatchHeader.GetSanitizedValue()))
             throw new ArgumentOutOfRangeException(nameof(ifMatchHeader), "Invalid format of If-Match header value");
@@ -64,7 +66,8 @@ public class OptimisticConcurrencyMiddleware
     )
     {
         var nextExpectedVersion = nextResourceVersionProvider.Value;
-        if (nextExpectedVersion == null) return;
+        if (nextExpectedVersion == null)
+            return;
 
         context.TrySetETagResponseHeader(nextExpectedVersion);
     }

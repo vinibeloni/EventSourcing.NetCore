@@ -1,4 +1,4 @@
-﻿using Core.EventStoreDB.Serialization;
+using Core.EventStoreDB.Serialization;
 using EventStore.Client;
 
 namespace Core.EventStoreDB.Subscriptions;
@@ -35,7 +35,7 @@ public class EventStoreDBSubscriptionCheckpointRepository: ISubscriptionCheckpoi
     public async ValueTask Store(string subscriptionId, ulong position, CancellationToken ct)
     {
         var @event = new CheckpointStored(subscriptionId, position, DateTime.UtcNow);
-        var eventToAppend = new[] {@event.ToJsonEventData()};
+        var eventToAppend = new[] { @event.ToJsonEventData() };
         var streamName = GetCheckpointStreamName(subscriptionId);
 
         try

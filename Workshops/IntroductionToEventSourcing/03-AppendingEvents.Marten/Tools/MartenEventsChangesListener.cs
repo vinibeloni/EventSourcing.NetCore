@@ -3,7 +3,7 @@ using Marten.Services;
 
 namespace IntroductionToEventSourcing.AppendingEvents.Tools;
 
-public class MartenEventsChangesListener : IDocumentSessionListener
+public class MartenEventsChangesListener: IDocumentSessionListener
 {
     public static readonly MartenEventsChangesListener Instance = new();
 

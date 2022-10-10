@@ -1,4 +1,4 @@
-﻿using Core.Events;
+using Core.Events;
 using Core.Tracing;
 using Core.Tracing.Causation;
 using Core.Tracing.Correlation;

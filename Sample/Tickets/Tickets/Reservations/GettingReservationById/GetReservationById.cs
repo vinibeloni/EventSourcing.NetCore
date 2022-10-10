@@ -9,7 +9,7 @@ public record GetReservationById(
 ): IQuery<ReservationDetails>;
 
 
-internal class HandleGetReservationById :
+internal class HandleGetReservationById:
     IQueryHandler<GetReservationById, ReservationDetails>
 {
     private readonly IDocumentSession querySession;

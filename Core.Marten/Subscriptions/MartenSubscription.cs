@@ -1,4 +1,4 @@
-﻿using Marten;
+using Marten;
 using Marten.Events;
 using Marten.Events.Projections;
 using Microsoft.Extensions.Logging;

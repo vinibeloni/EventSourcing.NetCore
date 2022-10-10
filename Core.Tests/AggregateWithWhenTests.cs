@@ -1,4 +1,4 @@
-﻿using Core.Aggregates;
+using Core.Aggregates;
 using FluentAssertions;
 using Xunit;
 
@@ -117,7 +117,7 @@ public class AggregateWithWhenTests
         );
 
         // 1. Get all events and sort them in the order of appearance
-        var events = new object[] {invoiceInitiated, invoiceIssued, invoiceSent};
+        var events = new object[] { invoiceInitiated, invoiceIssued, invoiceSent };
 
         // 2. Construct empty Invoice object
         var invoice = new Invoice();

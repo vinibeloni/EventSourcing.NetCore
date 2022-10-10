@@ -6,7 +6,7 @@ namespace Tickets.Tests.Builders;
 
 internal class ReservationBuilder
 {
-    private Func<Reservation> build  = () => new Reservation();
+    private Func<Reservation> build = () => new Reservation();
 
     public ReservationBuilder Tentative()
     {

@@ -6,7 +6,7 @@ public class Database
 {
     private readonly Dictionary<string, object> storage = new();
 
-    public void Store<T>(Guid id, T obj) where T: class
+    public void Store<T>(Guid id, T obj) where T : class
     {
         storage[GetId<T>(id)] = obj;
     }
@@ -16,7 +16,7 @@ public class Database
         storage.Remove(GetId<T>(id));
     }
 
-    public T? Get<T>(Guid id) where T: class
+    public T? Get<T>(Guid id) where T : class
     {
         return storage.TryGetValue(GetId<T>(id), out var result) ?
             // Clone to simulate getting new instance on loading

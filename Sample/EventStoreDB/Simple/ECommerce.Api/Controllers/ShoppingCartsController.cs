@@ -1,5 +1,4 @@
 using Core.WebApi.Headers;
-using Microsoft.AspNetCore.Mvc;
 using ECommerce.Api.Requests;
 using ECommerce.ShoppingCarts.AddingProductItem;
 using ECommerce.ShoppingCarts.Canceling;
@@ -9,6 +8,7 @@ using ECommerce.ShoppingCarts.GettingCarts;
 using ECommerce.ShoppingCarts.Opening;
 using ECommerce.ShoppingCarts.ProductItems;
 using ECommerce.ShoppingCarts.RemovingProductItem;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Api.Controllers;
 
@@ -66,9 +66,9 @@ public class ShoppingCartsController: Controller
     public async Task<IActionResult> RemoveProduct(
         [FromServices] Func<RemoveProductItemFromShoppingCart, CancellationToken, ValueTask> handle,
         Guid id,
-        [FromRoute]Guid? productId,
-        [FromQuery]int? quantity,
-        [FromQuery]decimal? unitPrice,
+        [FromRoute] Guid? productId,
+        [FromQuery] int? quantity,
+        [FromQuery] decimal? unitPrice,
         CancellationToken ct
     )
     {

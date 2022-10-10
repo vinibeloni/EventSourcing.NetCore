@@ -6,7 +6,7 @@ namespace Carts.ShoppingCarts.GettingCartById;
 
 public record GetCartById(
     Guid CartId
-    ) : IQuery<ShoppingCartDetails>
+    ): IQuery<ShoppingCartDetails>
 {
     public static GetCartById Create(Guid? cartId)
     {
@@ -17,7 +17,7 @@ public record GetCartById(
     }
 }
 
-internal class HandleGetCartById :
+internal class HandleGetCartById:
     IQueryHandler<GetCartById, ShoppingCartDetails>
 {
     private readonly IDocumentSession querySession;

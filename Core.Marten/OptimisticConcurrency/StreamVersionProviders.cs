@@ -1,4 +1,4 @@
-﻿namespace Core.Marten.OptimisticConcurrency;
+namespace Core.Marten.OptimisticConcurrency;
 
 public class MartenExpectedStreamVersionProvider
 {

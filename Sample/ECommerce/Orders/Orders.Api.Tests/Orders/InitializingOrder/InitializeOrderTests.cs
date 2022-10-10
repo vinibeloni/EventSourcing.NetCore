@@ -1,7 +1,7 @@
 using Core.Testing;
+using Ogooreck.API;
 using Orders.Api.Requests.Carts;
 using Xunit;
-using Ogooreck.API;
 using static Ogooreck.API.ApiSpecification;
 
 namespace Orders.Api.Tests.Orders.InitializingOrder;

@@ -1,4 +1,4 @@
-﻿namespace EventPipelines;
+namespace EventPipelines;
 
 public class EventHandlersBuilder
 {

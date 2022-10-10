@@ -1,7 +1,7 @@
-using Orders.Orders;
 using Core.Marten;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Orders.Orders;
 using Orders.Payments;
 using Orders.Shipments;
 

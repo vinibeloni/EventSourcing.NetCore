@@ -28,7 +28,7 @@ internal static class ReservationsConfig
     private static IServiceCollection AddCommandHandlers(this IServiceCollection services) =>
         services
             .AddCommandHandler<CreateTentativeReservation, HandleCreateTentativeReservation>()
-            .AddCommandHandler<ChangeReservationSeat,HandleChangeReservationSeat>()
+            .AddCommandHandler<ChangeReservationSeat, HandleChangeReservationSeat>()
             .AddCommandHandler<ConfirmReservation, HandleConfirmReservation>()
             .AddCommandHandler<CancelReservation, HandleCancelReservation>();
 

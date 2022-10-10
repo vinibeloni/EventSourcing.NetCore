@@ -64,7 +64,7 @@ public class BusinessLogicTests: MartenTest
         var tShirtPrice = 50;
 
         var pricedPairOfShoes = new PricedProductItem { ProductId = shoesId, Quantity = 1, UnitPrice = shoesPrice };
-        var pricedTShirt = new PricedProductItem{ ProductId = tShirtId, Quantity = 1, UnitPrice = tShirtPrice };
+        var pricedTShirt = new PricedProductItem { ProductId = tShirtId, Quantity = 1, UnitPrice = tShirtPrice };
 
         // Open
         await DocumentSession.Add(

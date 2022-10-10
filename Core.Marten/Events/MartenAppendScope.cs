@@ -1,4 +1,4 @@
-﻿using Core.Events;
+using Core.Events;
 using Core.Marten.OptimisticConcurrency;
 using Core.Tracing;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +15,7 @@ public class MartenAppendScope: AppendScope<long>, IMartenAppendScope
         Func<long?> getExpectedVersion,
         Action<long> setNextExpectedVersion,
         Func<TraceMetadata?> getEventMetadata
-    ): base(getExpectedVersion, setNextExpectedVersion, getEventMetadata)
+    ) : base(getExpectedVersion, setNextExpectedVersion, getEventMetadata)
     {
     }
 }

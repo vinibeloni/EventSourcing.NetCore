@@ -26,7 +26,7 @@ public record AddProductItemToShoppingCart(
     {
         var (cartId, productItem) = command;
 
-        if(shoppingCart.IsClosed)
+        if (shoppingCart.IsClosed)
             throw new InvalidOperationException($"Adding product item for cart in '{shoppingCart.Status}' status is not allowed.");
 
         var pricedProductItem = productPriceCalculator.Calculate(productItem);

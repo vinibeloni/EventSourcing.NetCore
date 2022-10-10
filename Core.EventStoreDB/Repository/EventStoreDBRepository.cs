@@ -1,4 +1,4 @@
-﻿using Core.Aggregates;
+using Core.Aggregates;
 using Core.Events;
 using Core.EventStoreDB.Events;
 using Core.EventStoreDB.Serialization;

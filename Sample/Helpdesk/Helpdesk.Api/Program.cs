@@ -14,9 +14,9 @@ using Marten.Pagination;
 using Marten.Schema.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Weasel.Core;
-using static Microsoft.AspNetCore.Http.Results;
-using static Helpdesk.Api.Incidents.IncidentService;
 using static Helpdesk.Api.Core.Http.ETagExtensions;
+using static Helpdesk.Api.Incidents.IncidentService;
+using static Microsoft.AspNetCore.Http.Results;
 using JsonOptions = Microsoft.AspNetCore.Http.Json.JsonOptions;
 
 var builder = WebApplication.CreateBuilder(args);

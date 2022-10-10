@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Warehouse.Api.Core.Primitives;
 
@@ -25,7 +25,7 @@ internal static class MappingExtensions
     {
         var notNullValue = value.AssertNotNull(paramName);
 
-        if(Equals(notNullValue, default(T)))
+        if (Equals(notNullValue, default(T)))
             throw new ArgumentOutOfRangeException(paramName);
 
         return notNullValue;

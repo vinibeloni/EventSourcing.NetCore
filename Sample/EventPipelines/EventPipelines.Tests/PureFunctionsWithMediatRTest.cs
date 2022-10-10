@@ -1,4 +1,4 @@
-﻿using EventPipelines.MediatR;
+using EventPipelines.MediatR;
 using FluentAssertions;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,18 +12,18 @@ public class PureFunctionsWithMediatRTest
         string FirstName,
         string LastName,
         bool IsAdmin
-    ) : INotification;
+    ): INotification;
 
     public record AdminAdded(
         string FirstName,
         string LastName
-    ) : INotification;
+    ): INotification;
 
     public record AdminGrantedInTenant(
         string FirstName,
         string LastName,
         string TenantName
-    ) : INotification;
+    ): INotification;
 
     public static class AdminPipeline
     {

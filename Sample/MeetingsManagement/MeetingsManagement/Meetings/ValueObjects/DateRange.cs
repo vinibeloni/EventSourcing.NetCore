@@ -13,10 +13,10 @@ public class DateRange
 
     public static DateRange Create(DateTime start, DateTime end)
     {
-        if (start == default(DateTime))
+        if (start == default)
             throw new ArgumentException($"{nameof(start)} needs to be defined.");
 
-        if (end == default(DateTime))
+        if (end == default)
             throw new ArgumentException($"{nameof(end)} needs to be defined.");
 
         if (start > end)

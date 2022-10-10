@@ -49,7 +49,7 @@ namespace EventStoreBasics.Tests;
 /// Class provides set of tests verifying if <see cref="EventStore.Init()"/> method initializes <c>Events</c> table properly.
 /// </para>
 /// </remarks>
-public class Exercise02CreateEventsTable : IDisposable
+public class Exercise02CreateEventsTable: IDisposable
 {
     private readonly NpgsqlConnection databaseConnection;
     private readonly PostgresSchemaProvider schemaProvider;

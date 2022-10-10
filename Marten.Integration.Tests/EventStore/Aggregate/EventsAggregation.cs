@@ -42,7 +42,8 @@ public class EventsAggregation: MartenTest
                 return;
 
             Issues[@event.IssueId] = Issues[@event.IssueId]
-                with {Description = @event.Description};
+                with
+            { Description = @event.Description };
         }
 
         public void Apply(IssueRemoved @event)

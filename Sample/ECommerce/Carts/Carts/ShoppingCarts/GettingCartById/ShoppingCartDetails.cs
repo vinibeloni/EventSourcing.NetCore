@@ -54,7 +54,7 @@ public class ShoppingCartDetails
 
         var existingProductItem = FindProductItemMatchingWith(@event.ProductItem);
 
-        if(existingProductItem == null)
+        if (existingProductItem == null)
             return;
 
         if (existingProductItem.HasTheSameQuantity(productItemToBeRemoved))
@@ -86,7 +86,7 @@ public class ShoppingCartDetails
     }
 }
 
-public class CartDetailsProjection : SingleStreamAggregation<ShoppingCartDetails>
+public class CartDetailsProjection: SingleStreamAggregation<ShoppingCartDetails>
 {
     public CartDetailsProjection()
     {
